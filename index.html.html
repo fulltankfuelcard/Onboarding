@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFC Onboarding Checklist</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#e11d48', // Primary Red
+                            black: '#000000', // Deep Black
+                            white: '#ffffff', // Pure White
+                            pink: '#ffe4e6', // Alert Pink/Light Red
+                            green: '#22c55e', // Success Green
+                            gray: '#f3f4f6', // Light Gray
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        
+        /* Custom Checkbox Styling - Adjusted for brand */
+        .checklist-item input[type="checkbox"] {
+            appearance: none;
+            background-color: #fff;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 1.5em;
+            height: 1.5em;
+            border: 2px solid #000;
+            border-radius: 0; /* Square borders for a sharper look */
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+            transition: all 0.1s ease-in-out;
+        }
+
+        .checklist-item input[type="checkbox"]::before {
+            content: "";
+            width: 0.85em;
+            height: 0.85em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em white;
+            background-color: white;
+            transform-origin: center;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+
+        .checklist-item input[type="checkbox"]:checked {
+            background-color: #e11d48; /* Primary Red */
+            border-color: #e11d48;
+        }
+
+        .checklist-item input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+
+        .checklist-item.completed label {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Progress Bar Transition */
+        #progress-bar {
+            transition: width 0.3s ease;
+        }
+        
+        /* Massive Display Type utility */
+        .text-massive {
+            font-size: 8rem;
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+        @media (min-width: 768px) {
+            .text-massive {
+                font-size: 14rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white border-b-2 border-black shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <span class="font-black text-2xl text-black tracking-tighter uppercase">Full TANK <span class="text-brand-red font-light">|</span> Onboarding</span>
+                </div>
+                <div class="flex flex-col items-end">
+                    <span class="text-xs font-bold text-black uppercase tracking-widest mb-1" id="progress-text">0% COMPLETED</span>
+                    <div class="w-32 sm:w-64 bg-gray-200 h-2">
+                        <div id="progress-bar" class="bg-brand-red h-2" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-black text-white py-24 border-b-8 border-brand-red">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-8 md:mb-0">
+                <div class="text-brand-red text-massive">GO</div>
+            </div>
+            <div class="md:w-2/3 md:pl-12">
+                <h4 class="text-brand-red font-bold tracking-widest uppercase text-sm mb-4">ACTION PLAN</h4>
+                <h1 class="text-5xl sm:text-7xl font-black tracking-tight mb-6 leading-none">ONBOARDING<br>CHECKLIST</h1>
+                <p class="text-xl text-gray-300 max-w-2xl font-light">
+                    Complete these steps to ensure your fleet gets set up without missing a beat. Track your progress here.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <div class="hidden lg:block lg:col-span-3">
+                <div class="sticky top-32">
+                    <h3 class="text-xs font-bold text-black uppercase tracking-widest mb-6 border-b-2 border-black pb-2">Stages</h3>
+                    <ul class="space-y-4" id="sidebar-nav">
+                        <li><a href="#stage-1" class="flex items-center text-sm font-bold text-black hover:text-brand-red transition"><span class="w-6 text-brand-red">01</span> Admin & Portal Setup</a></li>
+                        <li><a href="#stage-2" class="flex items-center text-sm font-bold text-gray-400 hover:text-black transition"><span class="w-6">02</span> Driver Setup</a></li>
+                        <li><a href="#stage-3" class="flex items-center text-sm font-bold text-gray-400 hover:text-black transition"><span class="w-6">03</span> App Distribution</a></li>
+                        <li><a href="#stage-4" class="flex items-center text-sm font-bold text-gray-400 hover:text-black transition"><span class="w-6">04</span> Go-Live</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lg:col-span-9 space-y-24">
+
+                <section id="stage-1" class="scroll-mt-32">
+                    <!-- Section Divider Page Style Header -->
+                    <div class="bg-black text-white p-8 mb-12 flex items-center shadow-lg border-l-8 border-brand-red">
+                        <div class="text-brand-red text-6xl md:text-8xl font-black mr-8 leading-none">01</div>
+                        <div>
+                            <span class="text-brand-red font-bold tracking-widest uppercase text-xs mb-1 block">SECTION</span>
+                            <h2 class="text-3xl md:text-5xl font-bold">Admin & Portal Setup</h2>
+                            <p class="text-gray-400 mt-2 font-light">Secure your access and review guidelines.</p>
+                        </div>
+                    </div>
+
+                    <!-- Task 1.1 -->
+                    <div class="mb-12 border-t-2 border-black pt-8">
+                        <div class="flex flex-col md:flex-row md:items-baseline mb-6">
+                            <h3 class="text-2xl font-black text-black mr-4">TASK 1.1</h3>
+                            <h4 class="text-xl font-bold text-gray-500">Portal Access & Security</h4>
+                        </div>
+                        <p class="text-black mb-6 text-lg font-light">Log into your administrator account for the first time and secure your login.</p>
+                        
+                        <!-- Clean Data Table Style -->
+                        <div class="border-y-2 border-gray-200 py-4 mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Portal Link</span> <a href="https://portal.profuelcard.com/sign-in" target="_blank" class="text-brand-red font-bold hover:underline">portal.profuelcard.com/sign-in</a></div>
+                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Temporary Password</span> Copy/paste from email.</div>
+                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Authentication</span> Enter SMS PIN when prompted.</div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4" id="checklist-1-1">
+                            <!-- JS will inject checkboxes here -->
+                        </div>
+                    </div>
+
+                    <!-- Task 1.2 -->
+                    <div class="mb-12 border-t-2 border-black pt-8">
+                        <div class="flex flex-col md:flex-row md:items-baseline mb-6">
+                            <h3 class="text-2xl font-black text-black mr-4">TASK 1.2</h3>
+                            <h4 class="text-xl font-bold text-gray-500">Overview & Reference Guides</h4>
+                        </div>
+                        <p class="text-black mb-6 text-lg font-light">Watch the quick video tutorial inside the portal to understand the main sections (Dashboard, Finance, Reports, Support, and Manage), and download your reference PDFs.</p>
+                        
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            <a href="https://www.youtube.com/watch?v=hZF8uJMS9Ec" target="_blank" class="inline-flex items-center px-6 py-3 border-2 border-black font-bold text-black bg-white hover:bg-black hover:text-white transition uppercase text-xs tracking-wider">
+                                <i class="fa-brands fa-youtube mr-2 text-brand-red text-lg"></i> Video Tutorial
+                            </a>
+                            <a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" target="_blank" class="inline-flex items-center px-6 py-3 border-2 border-black font-bold text-black bg-white hover:bg-black hover:text-white transition uppercase text-xs tracking-wider">
+                                <i class="fa-solid fa-file-pdf mr-2 text-brand-red text-lg"></i> RouteOne Go Guide
+                            </a>
+                        </div>
+
+                        <div class="space-y-4" id="checklist-1-2">
+                            <!-- JS will inject checkboxes here -->
+                        </div>
+                    </div>
+                </section>
+
+                <section id="stage-2" class="scroll-mt-32">
+                    <div class="bg-black text-white p-8 mb-12 flex items-center shadow-lg border-l-8 border-brand-red">
+                        <div class="text-brand-red text-6xl md:text-8xl font-black mr-8 leading-none">02</div>
+                        <div>
+                            <span class="text-brand-red font-bold tracking-widest uppercase text-xs mb-1 block">SECTION</span>
+                            <h2 class="text-3xl md:text-5xl font-bold">Driver Setup & Verification</h2>
+                            <p class="text-gray-400 mt-2 font-light">Set up fleet structure and verify phones.</p>
+                        </div>
+                    </div>
+
+                    <!-- Task 2.1 -->
+                    <div class="mb-12 border-t-2 border-black pt-8">
+                        <div class="flex flex-col md:flex-row md:items-baseline mb-6">
+                            <h3 class="text-2xl font-black text-black mr-4">TASK 2.1</h3>
+                            <h4 class="text-xl font-bold text-gray-500">Create Card Groups & Add Drivers</h4>
+                        </div>
+                        <p class="text-black mb-6 text-lg font-light">Set up your fleet structure in the PFC Portal under the <strong>Manage</strong> tab as shown in the video tutorial.</p>
+                        
+                        <div class="space-y-4" id="checklist-2-1">
+                            <!-- JS will inject checkboxes here -->
+                        </div>
+                    </div>
+                </section>
+
+                <section id="stage-3" class="scroll-mt-32">
+                    <div class="bg-black text-white p-8 mb-12 flex items-center shadow-lg border-l-8 border-brand-red">
+                        <div class="text-brand-red text-6xl md:text-8xl font-black mr-8 leading-none">03</div>
+                        <div>
+                            <span class="text-brand-red font-bold tracking-widest uppercase text-xs mb-1 block">SECTION</span>
+                            <h2 class="text-3xl md:text-5xl font-bold">App Distribution</h2>
+                            <p class="text-gray-400 mt-2 font-light">Equip drivers with the RouteOne GO app.</p>
+                        </div>
+                    </div>
+
+                    <!-- Task 3.1 -->
+                    <div class="mb-12 border-t-2 border-black pt-8">
+                        <div class="flex flex-col md:flex-row md:items-baseline mb-6">
+                            <h3 class="text-2xl font-black text-black mr-4">TASK 3.1</h3>
+                            <h4 class="text-xl font-bold text-gray-500">Send App Access to Drivers</h4>
+                        </div>
+                        <p class="text-black mb-6 text-lg font-light">Provide all drivers with app download links, discount activation code, and instructions and their individual credentials you created.</p>
+                        
+                        <div class="border-y-2 border-gray-200 py-4 mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                                <div>
+                                    <span class="font-bold block uppercase text-xs text-gray-500 mb-2">Portal Access Link</span> 
+                                    <a href="https://client.routeoneeld.com/" target="_blank" class="text-brand-red font-bold hover:underline bg-brand-pink p-2 inline-block">https://client.routeoneeld.com/</a>
+                                </div>
+                                <div>
+                                    <span class="font-bold block uppercase text-xs text-gray-500 mb-2">Discount Activation Code</span> 
+                                    <span class="text-black font-black text-xl bg-gray-100 p-2 border-2 border-black inline-block tracking-widest">diesel8k</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" target="_blank" class="inline-flex items-center px-6 py-3 border-2 border-black font-bold text-black bg-white hover:bg-black hover:text-white transition uppercase text-xs tracking-wider">
+                                🤖 Android App
+                            </a>
+                            <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" target="_blank" class="inline-flex items-center px-6 py-3 border-2 border-black font-bold text-black bg-white hover:bg-black hover:text-white transition uppercase text-xs tracking-wider">
+                                🍏 iPhone App
+                            </a>
+                        </div>
+
+                        <div class="space-y-4" id="checklist-3-1">
+                            <!-- JS will inject checkboxes here -->
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="font-black text-black uppercase tracking-widest text-sm mb-6 border-b-2 border-black pb-2">Communication Templates</h4>
+
+                            <!-- SMS Template -->
+                            <div class="mb-8 relative border-2 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                <div class="flex justify-between items-center mb-4 border-b border-gray-200 pb-4">
+                                    <span class="text-sm font-bold uppercase text-black">Option 1: SMS / Text Message</span>
+                                    <button onclick="copyToClipboard('sms-template', this)" class="bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-brand-red transition">
+                                        Copy Text
+                                    </button>
+                                </div>
+                                <p class="text-xs text-gray-500 mb-4 italic">Best for quick group texts or WhatsApp messages. Keep it short so drivers actually read it.</p>
+                                <div class="font-mono text-sm text-gray-800 whitespace-pre-wrap leading-relaxed" id="sms-template">Hi team, it's [Owner Name]. We are switching to a new fuel card system to get better discounts. Please do this today:
+
+1. Download the RouteOne GO app:
+Android: https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en
+iPhone: https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004
+
+2. Sign up and use our Promo Code: diesel8k
+
+3. TO GET FUEL: You need a new PIN every time you pump. Open the app > go to Cards > select your card > tap "Get PIN".
+
+Read the RouteOne Go User Guide here: https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing
+
+If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let me know when you have the app downloaded!</div>
+                            </div>
+
+                            <!-- Email Template -->
+                            <div class="relative border-2 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                <div class="flex justify-between items-center mb-4 border-b border-gray-200 pb-4">
+                                    <span class="text-sm font-bold uppercase text-black">Option 2: Email Template</span>
+                                    <button onclick="copyToClipboard('email-template', this)" class="bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-brand-red transition">
+                                        Copy Text
+                                    </button>
+                                </div>
+                                <p class="text-xs text-gray-500 mb-4 italic">Best if the owner prefers email, as he can attach the PDF guide directly.</p>
+                                <div class="font-mono text-sm text-gray-800 whitespace-pre-wrap leading-relaxed" id="email-template">Subject: Action Required: New Fuel Cards & App Setup Instructions
+
+Hi Team,
+
+We are rolling out our new Pro Fuel Cards (PFC). To use your new card at the pump, you must download the companion mobile app. Please complete these steps before your next trip:
+
+1. Download the RouteOne GO app
+- Android: https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en
+- iPhone: https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004
+
+2. Activate your account
+Sign up and enter Promo Code: diesel8k
+
+3. How to get your Fuel PIN (Important)
+For security, your PIN changes every time you fuel up.
+- Open the app
+- Go to the Cards tab
+- Select your discount card
+- Tap Get PIN to generate your code for the pump.
+
+Read the RouteOne Go User Guide here: https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing. It shows you exactly how to get your PIN and how to find the truck stops with the best diesel discounts on your route.
+
+Need Help at the Pump?
+If your card is ever declined or the PIN isn't working, call PFC Support directly at +1 (844) 244-3919 or email support@pfcllc.me.
+
+Please reply to this email once you have the app installed and ready to go.
+
+Best,
+[Owner Name]</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Task 3.2 -->
+                    <div class="mb-12 border-t-2 border-black pt-8">
+                        <div class="flex flex-col md:flex-row md:items-baseline mb-6">
+                            <h3 class="text-2xl font-black text-black mr-4">TASK 3.2</h3>
+                            <h4 class="text-xl font-bold text-gray-500">Brief Drivers on Support</h4>
+                        </div>
+                        <p class="text-black mb-6 text-lg font-light">Ensure drivers know how to retrieve their fuel PIN and reach support if stuck at a pump.</p>
+                        
+                        <div class="border-y-2 border-gray-200 py-4 mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Dynamic PIN</span> Before filling up, drivers open the app, go to <strong>Cards</strong>, select their discount card, and tap <strong>Get PIN</strong>. The PIN is generated in real-time and expires after a short period.</div>
+                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Direct Support</span> Phone: <strong>+1 (844) 244-3919</strong> <br> Email: <strong>support@pfcllc.me</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4" id="checklist-3-2">
+                            <!-- JS will inject checkboxes here -->
+                        </div>
+                    </div>
+                </section>
+
+                <section id="stage-4" class="scroll-mt-32">
+                    <div class="bg-black text-white p-8 mb-12 flex items-center shadow-lg border-l-8 border-brand-red">
+                        <div class="text-brand-red text-6xl md:text-8xl font-black mr-8 leading-none">04</div>
+                        <div>
+                            <span class="text-brand-red font-bold tracking-widest uppercase text-xs mb-1 block">SECTION</span>
+                            <h2 class="text-3xl md:text-5xl font-bold">Go-Live</h2>
+                            <p class="text-gray-400 mt-2 font-light">Verify first fuel transaction.</p>
+                        </div>
+                    </div>
+
+                    <!-- Task 4.1 -->
+                    <div class="mb-12 border-t-2 border-black pt-8">
+                        <div class="flex flex-col md:flex-row md:items-baseline mb-6">
+                            <h3 class="text-2xl font-black text-black mr-4">TASK 4.1</h3>
+                            <h4 class="text-xl font-bold text-gray-500">First Fueling & Billing Review</h4>
+                        </div>
+                        <p class="text-black mb-6 text-lg font-light">Verify that the system is operating correctly on the road.</p>
+
+                        <div class="space-y-4" id="checklist-4-1">
+                            <!-- JS will inject checkboxes here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Completion Message -->
+                    <div id="completion-message" class="hidden mt-12 bg-black text-white border-4 border-brand-green p-8 text-center shadow-[8px_8px_0px_0px_#22c55e]">
+                        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-green text-white mb-6">
+                            <i class="fa-solid fa-check text-5xl"></i>
+                        </div>
+                        <h3 class="text-3xl font-black uppercase tracking-widest mb-4">Onboarding Complete</h3>
+                        <p class="text-lg font-light max-w-xl mx-auto">Your fleet is fully set up and ready to fuel. You can safely close this page or keep it for your records.</p>
+                    </div>
+
+                </section>
+                
+                <section class="mt-24 pt-12 border-t-8 border-black">
+                    <div class="mb-12">
+                        <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-2 uppercase">Need a hand?</h2>
+                        <h3 class="text-2xl text-brand-red font-bold uppercase tracking-widest">Reach support</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <!-- App Support -->
+                        <div class="border-2 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <h4 class="font-black text-xl mb-1">PFC App (Optional)</h4>
+                            <p class="text-sm text-gray-600 mb-4 border-b border-gray-200 pb-4">Download — <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" class="text-brand-red hover:underline font-bold">Android</a> or <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" class="text-brand-red hover:underline font-bold">iPhone</a>. Once logged in, view your balance, savings, card details, and transactions.</p>
+                            
+                            <h4 class="font-black text-lg mb-1 mt-4">PFC — App Support <span class="text-brand-red font-normal">· 24/7/365</span></h4>
+                            <p class="text-sm text-black font-light leading-relaxed mb-4">Open the PFC app → tap "Support" → choose Email us, Call us, or Start Conversation. <br><span class="bg-gray-100 italic p-1 mt-1 inline-block">Russian-speaking drivers should use the app to chat with support in Russian.</span></p>
+                            
+                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                <h4 class="font-black text-lg mb-2">PFC Support Direct</h4>
+                                <div class="flex items-center text-xl font-bold mb-1">
+                                    <i class="fa-solid fa-phone w-6 text-brand-red"></i> +1 (844) 244-3919
+                                </div>
+                                <div class="flex items-center text-lg font-medium text-gray-700">
+                                    <i class="fa-solid fa-envelope w-6 text-brand-red"></i> support@pfcllc.me
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Accounting Support -->
+                        <div class="border-2 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-gray-50 flex flex-col justify-center">
+                            <h4 class="font-black text-xl mb-1">Full Tank Capital — Accounting</h4>
+                            <p class="text-sm text-gray-600 mb-6 uppercase tracking-wider font-bold">Billing, invoices, statements</p>
+                            
+                            <div class="flex items-center text-3xl font-black mb-2">
+                                <i class="fa-solid fa-phone w-8 text-brand-red"></i> +1 (708) 855-8808
+                            </div>
+                            <div class="flex items-center text-xl font-medium text-gray-700 mb-6">
+                                <i class="fa-solid fa-envelope w-8 text-brand-red"></i> accounting@fulltank.us
+                            </div>
+                            
+                            <div class="inline-block bg-black text-white text-xs font-bold uppercase tracking-widest px-4 py-2 self-start">
+                                Mon–Fri, 9:00 AM – 5:00 PM CT
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // --- Data Structure for Checklists ---
+        const checklistData = {
+            '1-1': [
+                { id: 'c11_1', text: 'Go to <a href="https://portal.profuelcard.com/sign-in" target="_blank" class="text-brand-red font-bold hover:underline">portal.profuelcard.com/sign-in</a>' },
+                { id: 'c11_2', text: 'Log in with temporary credentials' },
+                { id: 'c11_3', text: 'Update temporary password when prompted' },
+                { id: 'c11_4', text: 'Complete SMS PIN phone authentication' }
+            ],
+            '1-2': [
+                { id: 'c12_1', text: 'Watch the portal video tutorial' }
+            ],
+            '2-1': [
+                { id: 'c21_1', text: 'Set up Card Groups (if categorizing by team or region)' },
+                { id: 'c21_2', text: 'Create user profiles for all drivers' },
+                { id: 'c21_3', text: 'Assign cards to each driver profile' }
+            ],
+            '3-1': [
+                { id: 'c31_1', text: 'Send app download links (Android/iOS) to all drivers' },
+                { id: 'c31_2', text: 'Send promo code to all drivers' },
+                { id: 'c31_3', text: 'Send <em>RouteOne Go User Guide</em> PDF to all drivers' }
+            ],
+            '3-2': [
+                { id: 'c32_1', text: 'Explain Dynamic PIN generation to all drivers' },
+                { id: 'c32_2', text: 'Share PFC Direct Support phone and email with all drivers' }
+            ],
+            '4-1': [
+                { id: 'c41_1', text: 'Confirm first driver successfully completes a fuel transaction' },
+                { id: 'c41_2', text: 'View transaction details in the <strong>Finance > Transactions</strong> tab in the portal' },
+                { id: 'c41_3', text: 'Locate <strong>Finance > Statements</strong> to review invoicing options' }
+            ]
+        };
+
+        let totalItems = 0;
+        for (const key in checklistData) {
+            totalItems += checklistData[key].length;
+        }
+
+        let checkedState = JSON.parse(localStorage.getItem('pfcOnboardingState_v2')) || {};
+
+        function renderChecklists() {
+            for (const sectionId in checklistData) {
+                const container = document.getElementById(`checklist-${sectionId}`);
+                if (!container) continue;
+
+                const items = checklistData[sectionId];
+                items.forEach(item => {
+                    const isChecked = checkedState[item.id] ? 'checked' : '';
+                    const completedClass = checkedState[item.id] ? 'completed' : '';
+
+                    const div = document.createElement('div');
+                    div.className = `flex items-start checklist-item ${completedClass} p-3 hover:bg-gray-50 transition`;
+                    div.innerHTML = `
+                        <div class="flex items-center h-6 mt-0.5">
+                            <input id="${item.id}" type="checkbox" ${isChecked} onchange="toggleItem('${item.id}', this)" class="w-6 h-6">
+                        </div>
+                        <div class="ml-4 text-base">
+                            <label for="${item.id}" class="font-medium text-black cursor-pointer select-none">${item.text}</label>
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
+            }
+            updateProgress();
+        }
+
+        function toggleItem(id, checkbox) {
+            checkedState[id] = checkbox.checked;
+            
+            const parentDiv = checkbox.closest('.checklist-item');
+            if (checkbox.checked) {
+                parentDiv.classList.add('completed');
+            } else {
+                parentDiv.classList.remove('completed');
+            }
+
+            localStorage.setItem('pfcOnboardingState_v2', JSON.stringify(checkedState));
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const checkedCount = Object.values(checkedState).filter(Boolean).length;
+            const percentage = Math.round((checkedCount / totalItems) * 100);
+            
+            document.getElementById('progress-bar').style.width = `${percentage}%`;
+            document.getElementById('progress-text').innerText = `${percentage}% COMPLETED`;
+
+            updateNavStyling();
+
+            const completionMsg = document.getElementById('completion-message');
+            if (percentage === 100) {
+                completionMsg.classList.remove('hidden');
+            } else {
+                completionMsg.classList.add('hidden');
+            }
+        }
+
+        function updateNavStyling() {
+            const sections = [
+                { id: '1', keys: ['1-1', '1-2'] },
+                { id: '2', keys: ['2-1', '2-2'] },
+                { id: '3', keys: ['3-1', '3-2'] },
+                { id: '4', keys: ['4-1'] }
+            ];
+
+            const navLinks = document.querySelectorAll('#sidebar-nav a');
+            
+            sections.forEach((section, index) => {
+                let sectionComplete = true;
+                let sectionHasActivity = false;
+
+                section.keys.forEach(key => {
+                    checklistData[key].forEach(item => {
+                        if (checkedState[item.id]) {
+                            sectionHasActivity = true;
+                        } else {
+                            sectionComplete = false;
+                        }
+                    });
+                });
+
+                const link = navLinks[index];
+                const numberSpan = link.querySelector('span');
+                
+                link.className = 'flex items-center text-sm font-bold transition';
+                
+                if (sectionComplete) {
+                    link.classList.add('text-brand-red', 'line-through', 'opacity-50');
+                    numberSpan.classList.add('text-brand-red');
+                } else if (sectionHasActivity) {
+                    link.classList.add('text-black');
+                    numberSpan.classList.add('text-brand-red');
+                } else {
+                    link.classList.add('text-gray-400', 'hover:text-black');
+                    numberSpan.className = 'w-6';
+                }
+            });
+        }
+
+        function copyToClipboard(elementId, btnElement) {
+            const el = document.getElementById(elementId);
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(el.innerText).then(() => {
+                    showCopySuccess(btnElement);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = el.innerText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopySuccess(btnElement);
+                } catch (err) {
+                    console.error('Failed to copy', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        function showCopySuccess(btnElement) {
+            const originalText = btnElement.innerText;
+            btnElement.innerHTML = 'COPIED!';
+            btnElement.classList.remove('bg-black', 'text-white', 'hover:bg-brand-red');
+            btnElement.classList.add('bg-brand-green', 'text-white');
+            setTimeout(() => {
+                btnElement.innerText = originalText;
+                btnElement.classList.remove('bg-brand-green');
+                btnElement.classList.add('bg-black', 'text-white', 'hover:bg-brand-red');
+            }, 2000);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderChecklists();
+        });
+
+    </script>
+</body>
+</html>

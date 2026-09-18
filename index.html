@@ -122,7 +122,6 @@
             </div>
         </div>
     </nav>
-
     <header class="bg-black text-white py-24 border-b-8 border-brand-red">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
             <div class="md:w-1/3 mb-8 md:mb-0">
@@ -154,7 +153,6 @@
             </div>
 
             <div class="lg:col-span-9 space-y-24">
-
                 <section id="stage-1" class="scroll-mt-32">
                     <!-- Section Divider Page Style Header -->
                     <div class="bg-black text-white p-8 mb-12 flex items-center shadow-lg border-l-8 border-brand-red">
@@ -178,7 +176,8 @@
                         <div class="border-y-2 border-gray-200 py-4 mb-8">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                                 <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Portal Link</span> <a href="https://portal.profuelcard.com/sign-in" target="_blank" class="text-brand-red font-bold hover:underline break-all">portal.profuelcard.com/sign-in</a></div>
-                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Temporary Password</span> Copy/paste from email.</div>
+                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Temporary Password</span> Copy and paste the temporary password directly from your onboarding email instead of typing it manually.</div>
+                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">SMS PIN</span> Enter the SMS authentication code sent to your registered phone number when prompted.</div>
                             </div>
                         </div>
 
@@ -206,7 +205,6 @@
                         </div>
                     </div>
                 </section>
-
                 <section id="stage-2" class="scroll-mt-32">
                     <div class="bg-black text-white p-8 mb-12 flex items-center shadow-lg border-l-8 border-brand-red">
                         <div class="text-brand-red text-6xl md:text-8xl font-black mr-8 leading-none">02</div>
@@ -230,7 +228,6 @@
                         </div>
                     </div>
                 </section>
-
                 <section id="stage-3" class="scroll-mt-32">
                     <div class="bg-black text-white p-8 mb-12 flex items-center shadow-lg border-l-8 border-brand-red">
                         <div class="text-brand-red text-6xl md:text-8xl font-black mr-8 leading-none">03</div>
@@ -279,7 +276,7 @@
                             <h4 class="font-black text-black uppercase tracking-widest text-sm mb-6 border-b-2 border-black pb-2">Communication Templates</h4>
 
                             <!-- SMS Template -->
-                            <div class="mb-8 relative border-2 border-black bg-white p-4 md:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full">
+                            <div class="mb-8 relative border-2 border-black bg-white p-4 md:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full flex flex-col">
                                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 border-b border-gray-200 pb-4">
                                     <span class="text-sm font-bold uppercase text-black mb-2 sm:mb-0">Option 1: SMS / Text Message</span>
                                     <button onclick="copyToClipboard('sms-template', this)" class="bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-brand-red transition w-full sm:w-auto">
@@ -303,11 +300,11 @@ Read the RouteOne Go User Guide here: https://drive.google.com/file/d/1HDr8V5Kpv
 
 If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let me know when you have the app downloaded!</textarea>
 
-                                <div class="font-sans text-sm text-gray-800 leading-relaxed overflow-x-auto w-full" id="sms-template">
-                                    <p class="mb-4 break-words">Hi team, it's [Owner Name]. We are switching to a new fuel card system to get better discounts. Please do this today:</p>
+                                <div class="font-sans text-sm text-gray-800 leading-relaxed overflow-hidden w-full flex-grow flex flex-col" id="sms-template">
+                                    <p class="mb-4 break-words whitespace-pre-wrap">Hi team, it's [Owner Name]. We are switching to a new fuel card system to get better discounts. Please do this today:</p>
                                     
                                     <p class="font-bold mb-1 break-words">1. Download the RouteOne GO app:</p>
-                                    <ul class="list-disc pl-5 mb-4 space-y-1 break-all">
+                                    <ul class="list-disc pl-5 mb-4 space-y-1 break-words overflow-wrap-anywhere">
                                         <li>Android: <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" class="text-brand-red">https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en</a></li>
                                         <li>iPhone: <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" class="text-brand-red">https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004</a></li>
                                     </ul>
@@ -317,14 +314,14 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
                                     <p class="font-bold mb-1 break-words">3. TO GET FUEL:</p>
                                     <p class="mb-4 break-words">You need a new PIN every time you pump. Open the app &gt; go to Cards &gt; select your card &gt; tap "Get PIN".</p>
                                     
-                                    <p class="mb-4 break-words">Read the RouteOne Go User Guide here:<br><a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" class="text-brand-red break-all">https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing</a></p>
+                                    <p class="mb-4 break-words">Read the RouteOne Go User Guide here:<br><a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" class="text-brand-red break-all overflow-wrap-anywhere">https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing</a></p>
                                     
                                     <p class="break-words">If you get stuck at the pump, call support immediately: <span class="font-bold break-words">+1 (844) 244-3919</span>. Let me know when you have the app downloaded!</p>
                                 </div>
                             </div>
 
                             <!-- Email Template -->
-                            <div class="relative border-2 border-black bg-white p-4 md:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full">
+                            <div class="relative border-2 border-black bg-white p-4 md:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full flex flex-col">
                                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 border-b border-gray-200 pb-4">
                                     <span class="text-sm font-bold uppercase text-black mb-2 sm:mb-0">Option 2: Email Template</span>
                                     <button onclick="copyHtmlToClipboard('email-template', this)" class="bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-brand-red transition w-full sm:w-auto">
@@ -333,7 +330,7 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
                                 </div>
                                 <p class="text-xs text-gray-500 mb-4 italic break-words">Best if the owner prefers email. This copies with bolding and clickable links intact.</p>
                                 
-                                <div class="font-sans text-sm text-gray-800 leading-relaxed overflow-x-auto w-full" id="email-template">
+                                <div class="font-sans text-sm text-gray-800 leading-relaxed overflow-hidden w-full flex-grow flex flex-col" id="email-template">
                                     <p class="font-bold mb-4 break-words">Subject: Action Required: New Fuel Cards &amp; App Setup Instructions</p>
                                     
                                     <p class="mb-4 break-words">Hi Team,</p>
@@ -341,7 +338,7 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
                                     <p class="mb-4 break-words">We are rolling out our new Pro Fuel Cards (PFC). To use your new card at the pump, you must download the companion mobile app. Please complete these steps before your next trip:</p>
                                     
                                     <p class="font-bold mb-1 break-words">1. Download the RouteOne GO app</p>
-                                    <ul class="list-disc pl-5 mb-4 space-y-1 break-all">
+                                    <ul class="list-disc pl-5 mb-4 space-y-1 break-words overflow-wrap-anywhere">
                                         <li>Android: <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" class="text-brand-red">https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en</a></li>
                                         <li>iPhone: <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" class="text-brand-red">https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004</a></li>
                                     </ul>
@@ -358,7 +355,7 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
                                         <li>Tap <strong>Get PIN</strong> to generate your code for the pump.</li>
                                     </ul>
                                     
-                                    <p class="mb-4 break-words">Read the RouteOne Go User Guide here: <a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" class="text-brand-red break-all">https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing</a>. It shows you exactly how to get your PIN and how to find the truck stops with the best diesel discounts on your route.</p>
+                                    <p class="mb-4 break-words">Read the RouteOne Go User Guide here: <a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" class="text-brand-red break-all overflow-wrap-anywhere">https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing</a>. It shows you exactly how to get your PIN and how to find the truck stops with the best diesel discounts on your route.</p>
                                     
                                     <p class="font-bold mb-1 break-words">Need Help at the Pump?</p>
                                     <p class="mb-4 break-words">If your card is ever declined or the PIN isn't working, call PFC Support directly at <strong>+1 (844) 244-3919</strong> or email support@pfcllc.me.</p>
@@ -372,10 +369,10 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
                             <!-- Driver Instruction Download Button -->
                             <div class="mt-12 text-center border-t-2 border-black pt-8 w-full flex flex-col items-center">
                                 <h4 class="font-black text-xl md:text-2xl mb-4 break-words text-center">Prefer a printable guide for your drivers?</h4>
-                                <a href="driver-instructions.html" target="_blank" class="flex flex-col sm:flex-row items-center justify-center px-6 md:px-8 py-4 bg-brand-red text-white font-black uppercase tracking-widest text-xs md:text-sm hover:bg-black transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-1 hover:translate-x-1 w-full max-w-sm sm:max-w-md mx-auto text-center">
+                                <a href="https://drive.google.com/file/d/1bLX--NUhoeCeCvrXmzz958eIAo_S8kGY/view?usp=sharing" target="_blank" class="flex flex-col sm:flex-row items-center justify-center px-6 md:px-8 py-4 bg-brand-red text-white font-black uppercase tracking-widest text-xs md:text-sm hover:bg-black transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-1 hover:translate-x-1 w-full max-w-sm sm:max-w-md mx-auto text-center">
                                     <i class="fa-solid fa-download mb-2 sm:mb-0 sm:mr-3 text-lg md:text-xl"></i> Download Driver Instructions
                                 </a>
-                                <p class="text-xs text-gray-500 mt-4 max-w-md mx-auto break-words text-center">Click above to open a formatted guide you can save as a PDF or print directly to hand to your drivers.</p>
+                                <p class="text-xs text-gray-500 mt-4 max-w-md mx-auto break-words text-center">Click above to open a formatted PDF guide you can save or print directly to hand to your drivers.</p>
                             </div>
 
                         </div>
@@ -401,7 +398,6 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
                         </div>
                     </div>
                 </section>
-
                 <section id="stage-4" class="scroll-mt-32">
                     <div class="bg-black text-white p-8 mb-12 flex items-center shadow-lg border-l-8 border-brand-red">
                         <div class="text-brand-red text-6xl md:text-8xl font-black mr-8 leading-none">04</div>
@@ -435,7 +431,6 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
                     </div>
 
                 </section>
-                
                 <section class="mt-24 pt-12 border-t-8 border-black">
                     <div class="mb-12">
                         <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-2 uppercase">Need a hand?</h2>
@@ -486,7 +481,6 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
             </div>
         </div>
     </main>
-
     <script>
         // --- Data Structure for Checklists ---
         const checklistData = {
@@ -586,7 +580,7 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
         function updateNavStyling() {
             const sections = [
                 { id: '1', keys: ['1-1', '1-2'] },
-                { id: '2', keys: ['2-1'] }, // Updated to match actual data
+                { id: '2', keys: ['2-1'] },
                 { id: '3', keys: ['3-1', '3-2'] },
                 { id: '4', keys: ['4-1'] }
             ];
@@ -610,7 +604,7 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
                 });
 
                 const link = navLinks[index];
-                if(link) { // check if link exists
+                if(link) {
                     const numberSpan = link.querySelector('span');
                     
                     link.className = 'flex items-center text-sm font-bold transition';

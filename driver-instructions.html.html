@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFC Driver Instructions</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            red: '#e11d48',
+                            black: '#000000',
+                            white: '#ffffff',
+                            gray: '#f3f4f6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #ffffff; color: #000000; }
+        
+        /* Print Styles to ensure it looks like a clean PDF when printed */
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased max-w-4xl mx-auto border-x border-gray-200 min-h-screen relative shadow-2xl">
+
+    <!-- Floating Print Button (Hidden on Print) -->
+    <div class="fixed bottom-4 right-4 md:top-8 md:right-8 md:bottom-auto z-50 no-print">
+        <button onclick="window.print()" class="bg-brand-red text-white font-black uppercase tracking-widest text-xs md:text-sm px-4 py-3 md:px-6 md:py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition flex items-center gap-2">
+             <i class="fa-solid fa-print"></i> Print / Save as PDF
+        </button>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-black text-white p-6 md:p-12 border-b-8 border-brand-red">
+        <div class="flex flex-col md:flex-row justify-between items-start mb-8 md:mb-12 gap-4">
+            <h1 class="text-3xl md:text-6xl font-black tracking-tight leading-none uppercase">Driver<br><span class="text-brand-red">Quick Start</span></h1>
+            <div class="text-left md:text-right">
+                <span class="font-black text-lg md:text-xl tracking-tighter uppercase">Full TANK <span class="text-brand-red font-light">|</span> PFC</span>
+            </div>
+        </div>
+        <p class="text-lg md:text-xl text-gray-300 font-light max-w-2xl leading-snug">
+            You must download the RouteOne GO app to use your new fuel card and get your fueling PIN. Follow these steps.
+        </p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-6 md:p-12 space-y-12 md:space-y-16">
+
+        <!-- Step 1 -->
+        <section class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+            <div class="text-brand-red text-6xl md:text-7xl font-black leading-none shrink-0 w-16 md:w-24">01</div>
+            <div class="w-full">
+                <span class="text-brand-red font-bold tracking-widest uppercase text-xs mb-1 block">DOWNLOAD</span>
+                <h2 class="text-2xl md:text-3xl font-black uppercase mb-3">Get the App</h2>
+                <p class="text-base md:text-lg font-light mb-6">Install the RouteOne GO app on your smartphone.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" target="_blank" class="block border-2 border-black p-4 text-center bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="text-4xl block mb-2">🤖</span>
+                        <h3 class="font-black uppercase mb-1">Android</h3>
+                        <p class="text-xs text-gray-500 mb-2">Search Google Play for:</p>
+                        <p class="font-bold text-brand-red break-words">RouteOne Go</p>
+                    </a>
+                    <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" target="_blank" class="block border-2 border-black p-4 text-center bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="text-4xl block mb-2">🍏</span>
+                        <h3 class="font-black uppercase mb-1">iPhone</h3>
+                        <p class="text-xs text-gray-500 mb-2">Search App Store for:</p>
+                        <p class="font-bold text-brand-red break-words">RouteOne Go Truck Navigation</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t-2 border-black">
+
+        <!-- Step 2 -->
+        <section class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+            <div class="text-brand-red text-6xl md:text-7xl font-black leading-none shrink-0 w-16 md:w-24">02</div>
+            <div class="w-full">
+                <span class="text-brand-red font-bold tracking-widest uppercase text-xs mb-1 block">ACTIVATE</span>
+                <h2 class="text-2xl md:text-3xl font-black uppercase mb-3">Create Account</h2>
+                <p class="text-base md:text-lg font-light mb-6">Open the app, sign up for a new account, and enter your company's specific promo code.</p>
+                
+                <div class="bg-black text-white p-6 shadow-[6px_6px_0px_0px_#e11d48]">
+                    <span class="text-gray-400 text-xs font-bold uppercase tracking-widest block mb-2">Your Promo Code:</span>
+                    <span class="text-3xl md:text-4xl font-black tracking-widest text-brand-red bg-white px-4 py-2 inline-block break-all">diesel8k</span>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t-2 border-black">
+
+        <!-- Step 3 -->
+        <section class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+            <div class="text-brand-red text-6xl md:text-7xl font-black leading-none shrink-0 w-16 md:w-24">03</div>
+            <div class="w-full">
+                <span class="text-brand-red font-bold tracking-widest uppercase text-xs mb-1 block">FUELING</span>
+                <h2 class="text-2xl md:text-3xl font-black uppercase mb-3">How to get your PIN</h2>
+                <p class="text-base md:text-lg font-light mb-6">For security, your card requires a new, dynamic PIN every time you pump fuel.</p>
+                
+                <!-- Timeline - Responsive -->
+                <div class="relative py-4 md:py-8 my-4 md:my-8">
+                    <!-- Line -->
+                    <div class="absolute top-1/2 left-0 w-full h-1 bg-black -translate-y-1/2 z-0 hidden sm:block"></div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 sm:gap-4 relative z-10">
+                        
+                        <div class="flex flex-col items-center text-center bg-white">
+                            <div class="w-12 h-12 bg-brand-red text-white rounded-full flex items-center justify-center font-black text-xl mb-4 border-4 border-white">1</div>
+                            <h4 class="font-bold text-sm uppercase mb-1">Open App</h4>
+                            <p class="text-xs text-gray-500">Launch RouteOne Go</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center text-center bg-white">
+                            <div class="w-12 h-12 bg-brand-red text-white rounded-full flex items-center justify-center font-black text-xl mb-4 border-4 border-white">2</div>
+                            <h4 class="font-bold text-sm uppercase mb-1">Go to Cards</h4>
+                            <p class="text-xs text-gray-500">Tap the Cards tab</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center text-center bg-white">
+                            <div class="w-12 h-12 bg-brand-red text-white rounded-full flex items-center justify-center font-black text-xl mb-4 border-4 border-white">3</div>
+                            <h4 class="font-bold text-sm uppercase mb-1">Select Card</h4>
+                            <p class="text-xs text-gray-500">Choose your discount card</p>
+                        </div>
+
+                        <div class="flex flex-col items-center text-center bg-white">
+                            <div class="w-12 h-12 bg-brand-red text-white rounded-full flex items-center justify-center font-black text-xl mb-4 border-4 border-white">4</div>
+                            <h4 class="font-bold text-sm uppercase mb-1">Get PIN</h4>
+                            <p class="text-xs text-gray-500">Tap "Get PIN" for the pump</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Support Section -->
+    <footer class="bg-gray-100 p-6 md:p-12 border-t-8 border-black">
+        <h3 class="text-xl md:text-2xl font-black uppercase mb-6 text-center">Stuck at the pump?</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            <a href="tel:+18442443919" class="block bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_0px_#000] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition">
+                <h4 class="font-bold text-xs md:text-sm uppercase text-gray-500 mb-2">Call Direct</h4>
+                <p class="text-xl md:text-2xl font-black text-brand-red">+1 (844) 244-3919</p>
+            </a>
+            
+            <a href="mailto:support@pfcllc.me" class="block bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_0px_#000] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition">
+                <h4 class="font-bold text-xs md:text-sm uppercase text-gray-500 mb-2">Email Support</h4>
+                <p class="text-lg md:text-xl font-black text-black break-all">support@pfcllc.me</p>
+            </a>
+        </div>
+        
+        <div class="mt-8 md:mt-12 text-center bg-white border-2 border-brand-red p-6 shadow-[4px_4px_0px_0px_#e11d48]">
+            <h4 class="font-bold text-sm uppercase text-gray-500 mb-2">Need detailed instructions?</h4>
+            <p class="mb-4 text-sm font-light">View the complete guide on how to use the app, find fuel, and manage your account.</p>
+            <a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" target="_blank" class="inline-block bg-brand-red text-white font-black uppercase tracking-widest text-sm px-6 py-3 shadow-[4px_4px_0px_0px_#000] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition">
+                <i class="fa-solid fa-book-open mr-2"></i> Full RouteOne Go User Guide
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>

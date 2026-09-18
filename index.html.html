@@ -177,7 +177,7 @@
                         <!-- Clean Data Table Style -->
                         <div class="border-y-2 border-gray-200 py-4 mb-8">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Portal Link</span> <a href="https://portal.profuelcard.com/sign-in" target="_blank" class="text-brand-red font-bold hover:underline">portal.profuelcard.com/sign-in</a></div>
+                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Portal Link</span> <a href="https://portal.profuelcard.com/sign-in" target="_blank" class="text-brand-red font-bold hover:underline break-all">portal.profuelcard.com/sign-in</a></div>
                                 <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Temporary Password</span> Copy/paste from email.</div>
                             </div>
                         </div>
@@ -193,14 +193,11 @@
                             <h3 class="text-2xl font-black text-black mr-4">TASK 1.2</h3>
                             <h4 class="text-xl font-bold text-gray-500">Overview & Reference Guides</h4>
                         </div>
-                        <p class="text-black mb-6 text-lg font-light">Watch the quick video tutorial inside the portal to understand the main sections (Dashboard, Finance, Reports, Support, and Manage), and download your reference PDFs.</p>
+                        <p class="text-black mb-6 text-lg font-light">Watch the quick video tutorial inside the portal to understand the main sections (Dashboard, Finance, Reports, Support, and Manage).</p>
                         
                         <div class="flex flex-wrap gap-4 mb-8">
                             <a href="https://www.youtube.com/watch?v=hZF8uJMS9Ec" target="_blank" class="inline-flex items-center px-6 py-3 border-2 border-black font-bold text-black bg-white hover:bg-black hover:text-white transition uppercase text-xs tracking-wider">
                                 <i class="fa-brands fa-youtube mr-2 text-brand-red text-lg"></i> Video Tutorial
-                            </a>
-                            <a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" target="_blank" class="inline-flex items-center px-6 py-3 border-2 border-black font-bold text-black bg-white hover:bg-black hover:text-white transition uppercase text-xs tracking-wider">
-                                <i class="fa-solid fa-file-pdf mr-2 text-brand-red text-lg"></i> RouteOne Go Guide
                             </a>
                         </div>
 
@@ -215,8 +212,8 @@
                         <div class="text-brand-red text-6xl md:text-8xl font-black mr-8 leading-none">02</div>
                         <div>
                             <span class="text-brand-red font-bold tracking-widest uppercase text-xs mb-1 block">SECTION</span>
-                            <h2 class="text-3xl md:text-5xl font-bold">Driver Setup & Verification</h2>
-                            <p class="text-gray-400 mt-2 font-light">Set up fleet structure and verify phones.</p>
+                            <h2 class="text-3xl md:text-5xl font-bold">Driver Setup</h2>
+                            <p class="text-gray-400 mt-2 font-light">Set up fleet structure.</p>
                         </div>
                     </div>
 
@@ -256,7 +253,7 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                                 <div>
                                     <span class="font-bold block uppercase text-xs text-gray-500 mb-2">Portal Access Link</span> 
-                                    <a href="https://client.routeoneeld.com/" target="_blank" class="text-brand-red font-bold hover:underline bg-brand-pink p-2 inline-block">https://client.routeoneeld.com/</a>
+                                    <a href="https://client.routeoneeld.com/" target="_blank" class="text-brand-red font-bold hover:underline bg-brand-pink p-2 inline-block break-all">https://client.routeoneeld.com/</a>
                                 </div>
                                 <div>
                                     <span class="font-bold block uppercase text-xs text-gray-500 mb-2">Discount Activation Code</span> 
@@ -282,68 +279,105 @@
                             <h4 class="font-black text-black uppercase tracking-widest text-sm mb-6 border-b-2 border-black pb-2">Communication Templates</h4>
 
                             <!-- SMS Template -->
-                            <div class="mb-8 relative border-2 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                                <div class="flex justify-between items-center mb-4 border-b border-gray-200 pb-4">
-                                    <span class="text-sm font-bold uppercase text-black">Option 1: SMS / Text Message</span>
-                                    <button onclick="copyToClipboard('sms-template', this)" class="bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-brand-red transition">
+                            <div class="mb-8 relative border-2 border-black bg-white p-4 md:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 border-b border-gray-200 pb-4">
+                                    <span class="text-sm font-bold uppercase text-black mb-2 sm:mb-0">Option 1: SMS / Text Message</span>
+                                    <button onclick="copyToClipboard('sms-template', this)" class="bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-brand-red transition w-full sm:w-auto">
                                         Copy Text
                                     </button>
                                 </div>
-                                <p class="text-xs text-gray-500 mb-4 italic">Best for quick group texts or WhatsApp messages. Keep it short so drivers actually read it.</p>
-                                <div class="font-mono text-sm text-gray-800 whitespace-pre-wrap leading-relaxed" id="sms-template">Hi team, it's [Owner Name]. We are switching to a new fuel card system to get better discounts. Please do this today:
+                                <p class="text-xs text-gray-500 mb-4 italic">Best for quick group texts or WhatsApp messages.</p>
+                                
+                                <!-- Hidden textarea for copying raw text with line breaks -->
+                                <textarea id="sms-raw-text" class="sr-only" aria-hidden="true">Hi team, it's [Owner Name]. We are switching to a new fuel card system to get better discounts. Please do this today:
 
 1. Download the RouteOne GO app:
 Android: https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en
 iPhone: https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004
 
-2. Sign up and use our Promo Code: diesel8k
+2. Sign up and use our Promo Code: diesel8k. 
 
 3. TO GET FUEL: You need a new PIN every time you pump. Open the app > go to Cards > select your card > tap "Get PIN".
 
 Read the RouteOne Go User Guide here: https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing
 
-If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let me know when you have the app downloaded!</div>
+If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let me know when you have the app downloaded!</textarea>
+
+                                <div class="font-sans text-sm text-gray-800 leading-relaxed overflow-x-auto" id="sms-template">
+                                    <p class="mb-4">Hi team, it's [Owner Name]. We are switching to a new fuel card system to get better discounts. Please do this today:</p>
+                                    
+                                    <p class="font-bold mb-1">1. Download the RouteOne GO app:</p>
+                                    <ul class="list-disc pl-5 mb-4 space-y-1">
+                                        <li>Android: <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" class="text-brand-red break-all">https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en</a></li>
+                                        <li>iPhone: <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" class="text-brand-red break-all">https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004</a></li>
+                                    </ul>
+                                    
+                                    <p class="font-bold mb-4">2. Sign up and use our Promo Code: <span class="bg-gray-200 px-1">diesel8k</span>.</p>
+                                    
+                                    <p class="font-bold mb-1">3. TO GET FUEL:</p>
+                                    <p class="mb-4">You need a new PIN every time you pump. Open the app > go to Cards > select your card > tap "Get PIN".</p>
+                                    
+                                    <p class="mb-4">Read the RouteOne Go User Guide here:<br><a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" class="text-brand-red break-all">https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing</a></p>
+                                    
+                                    <p>If you get stuck at the pump, call support immediately: <span class="font-bold">+1 (844) 244-3919</span>. Let me know when you have the app downloaded!</p>
+                                </div>
                             </div>
 
                             <!-- Email Template -->
-                            <div class="relative border-2 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                                <div class="flex justify-between items-center mb-4 border-b border-gray-200 pb-4">
-                                    <span class="text-sm font-bold uppercase text-black">Option 2: Email Template</span>
-                                    <button onclick="copyToClipboard('email-template', this)" class="bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-brand-red transition">
-                                        Copy Text
+                            <div class="relative border-2 border-black bg-white p-4 md:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 border-b border-gray-200 pb-4">
+                                    <span class="text-sm font-bold uppercase text-black mb-2 sm:mb-0">Option 2: Email Template</span>
+                                    <button onclick="copyHtmlToClipboard('email-template', this)" class="bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-brand-red transition w-full sm:w-auto">
+                                        Copy Rich Text
                                     </button>
                                 </div>
-                                <p class="text-xs text-gray-500 mb-4 italic">Best if the owner prefers email, as he can attach the PDF guide directly.</p>
-                                <div class="font-mono text-sm text-gray-800 whitespace-pre-wrap leading-relaxed" id="email-template">Subject: Action Required: New Fuel Cards & App Setup Instructions
-
-Hi Team,
-
-We are rolling out our new Pro Fuel Cards (PFC). To use your new card at the pump, you must download the companion mobile app. Please complete these steps before your next trip:
-
-1. Download the RouteOne GO app
-- Android: https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en
-- iPhone: https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004
-
-2. Activate your account
-Sign up and enter Promo Code: diesel8k
-
-3. How to get your Fuel PIN (Important)
-For security, your PIN changes every time you fuel up.
-- Open the app
-- Go to the Cards tab
-- Select your discount card
-- Tap Get PIN to generate your code for the pump.
-
-Read the RouteOne Go User Guide here: https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing. It shows you exactly how to get your PIN and how to find the truck stops with the best diesel discounts on your route.
-
-Need Help at the Pump?
-If your card is ever declined or the PIN isn't working, call PFC Support directly at +1 (844) 244-3919 or email support@pfcllc.me.
-
-Please reply to this email once you have the app installed and ready to go.
-
-Best,
-[Owner Name]</div>
+                                <p class="text-xs text-gray-500 mb-4 italic">Best if the owner prefers email. This copies with bolding and clickable links intact.</p>
+                                
+                                <div class="font-sans text-sm text-gray-800 leading-relaxed overflow-x-auto" id="email-template">
+                                    <p class="font-bold mb-4">Subject: Action Required: New Fuel Cards & App Setup Instructions</p>
+                                    
+                                    <p class="mb-4">Hi Team,</p>
+                                    
+                                    <p class="mb-4">We are rolling out our new Pro Fuel Cards (PFC). To use your new card at the pump, you must download the companion mobile app. Please complete these steps before your next trip:</p>
+                                    
+                                    <p class="font-bold mb-1">1. Download the RouteOne GO app</p>
+                                    <ul class="list-disc pl-5 mb-4 space-y-1">
+                                        <li>Android: <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" class="text-brand-red break-all">https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en</a></li>
+                                        <li>iPhone: <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" class="text-brand-red break-all">https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004</a></li>
+                                    </ul>
+                                    
+                                    <p class="font-bold mb-1">2. Activate your account</p>
+                                    <p class="mb-4">Sign up and enter Promo Code: <strong>diesel8k</strong>.</p>
+                                    
+                                    <p class="font-bold mb-1">3. How to get your Fuel PIN (Important)</p>
+                                    <p class="mb-2">For security, your PIN changes every time you fuel up.</p>
+                                    <ul class="list-disc pl-5 mb-4 space-y-1">
+                                        <li>Open the app</li>
+                                        <li>Go to the <strong>Cards</strong> tab</li>
+                                        <li>Select your discount card</li>
+                                        <li>Tap <strong>Get PIN</strong> to generate your code for the pump.</li>
+                                    </ul>
+                                    
+                                    <p class="mb-4">Read the RouteOne Go User Guide here: <a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" class="text-brand-red break-all">https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing</a>. It shows you exactly how to get your PIN and how to find the truck stops with the best diesel discounts on your route.</p>
+                                    
+                                    <p class="font-bold mb-1">Need Help at the Pump?</p>
+                                    <p class="mb-4">If your card is ever declined or the PIN isn't working, call PFC Support directly at <strong>+1 (844) 244-3919</strong> or email support@pfcllc.me.</p>
+                                    
+                                    <p class="mb-4">Please reply to this email once you have the app installed and ready to go.</p>
+                                    
+                                    <p>Best,<br>[Owner Name]</p>
+                                </div>
                             </div>
+                            
+                            <!-- Driver Instruction Download Button -->
+                            <div class="mt-12 text-center border-t-2 border-black pt-8">
+                                <h4 class="font-black text-xl mb-4">Prefer a printable guide for your drivers?</h4>
+                                <a href="driver-instructions.html" target="_blank" class="inline-flex items-center px-8 py-4 bg-brand-red text-white font-black uppercase tracking-widest text-sm hover:bg-black transition shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-1 hover:translate-x-1">
+                                    <i class="fa-solid fa-download mr-3 text-xl"></i> Download Driver Instructions
+                                </a>
+                                <p class="text-xs text-gray-500 mt-4 max-w-md mx-auto">Click above to open a formatted guide you can save as a PDF or print directly to hand to your drivers.</p>
+                            </div>
+
                         </div>
                     </div>
 
@@ -552,7 +586,7 @@ Best,
         function updateNavStyling() {
             const sections = [
                 { id: '1', keys: ['1-1', '1-2'] },
-                { id: '2', keys: ['2-1', '2-2'] },
+                { id: '2', keys: ['2-1'] }, // Updated to match actual data
                 { id: '3', keys: ['3-1', '3-2'] },
                 { id: '4', keys: ['4-1'] }
             ];
@@ -564,52 +598,102 @@ Best,
                 let sectionHasActivity = false;
 
                 section.keys.forEach(key => {
-                    checklistData[key].forEach(item => {
-                        if (checkedState[item.id]) {
-                            sectionHasActivity = true;
-                        } else {
-                            sectionComplete = false;
-                        }
-                    });
+                    if (checklistData[key]) {
+                        checklistData[key].forEach(item => {
+                            if (checkedState[item.id]) {
+                                sectionHasActivity = true;
+                            } else {
+                                sectionComplete = false;
+                            }
+                        });
+                    }
                 });
 
                 const link = navLinks[index];
-                const numberSpan = link.querySelector('span');
-                
-                link.className = 'flex items-center text-sm font-bold transition';
-                
-                if (sectionComplete) {
-                    link.classList.add('text-brand-red', 'line-through', 'opacity-50');
-                    numberSpan.classList.add('text-brand-red');
-                } else if (sectionHasActivity) {
-                    link.classList.add('text-black');
-                    numberSpan.classList.add('text-brand-red');
-                } else {
-                    link.classList.add('text-gray-400', 'hover:text-black');
-                    numberSpan.className = 'w-6';
+                if(link) { // check if link exists
+                    const numberSpan = link.querySelector('span');
+                    
+                    link.className = 'flex items-center text-sm font-bold transition';
+                    
+                    if (sectionComplete) {
+                        link.classList.add('text-brand-red', 'line-through', 'opacity-50');
+                        numberSpan.classList.add('text-brand-red');
+                    } else if (sectionHasActivity) {
+                        link.classList.add('text-black');
+                        numberSpan.classList.add('text-brand-red');
+                    } else {
+                        link.classList.add('text-gray-400', 'hover:text-black');
+                        numberSpan.className = 'w-6';
+                    }
                 }
             });
         }
 
         function copyToClipboard(elementId, btnElement) {
+            // For SMS, we copy the raw text from the hidden textarea to preserve basic line breaks
+            const rawTextAreaId = elementId.replace('template', 'raw-text');
+            const textAreaEl = document.getElementById(rawTextAreaId);
+            
+            if (textAreaEl) {
+                const textToCopy = textAreaEl.value;
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        showCopySuccess(btnElement);
+                    });
+                } else {
+                    fallbackCopyTextToClipboard(textToCopy, btnElement);
+                }
+            }
+        }
+
+        function copyHtmlToClipboard(elementId, btnElement) {
+            // For Email, we copy the rich HTML so bolding and links are preserved when pasted into Gmail/Outlook
             const el = document.getElementById(elementId);
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(el.innerText).then(() => {
+            
+            if (navigator.clipboard && window.isSecureContext && typeof ClipboardItem !== 'undefined') {
+                const html = el.innerHTML;
+                const text = el.innerText;
+                const data = [new ClipboardItem({
+                    "text/html": new Blob([html], { type: "text/html" }),
+                    "text/plain": new Blob([text], { type: "text/plain" })
+                })];
+                
+                navigator.clipboard.write(data).then(() => {
                     showCopySuccess(btnElement);
+                }, (err) => {
+                    console.error('Failed to copy rich text, falling back to plain', err);
+                    fallbackCopyTextToClipboard(text, btnElement);
                 });
             } else {
-                const textArea = document.createElement("textarea");
-                textArea.value = el.innerText;
-                document.body.appendChild(textArea);
-                textArea.select();
+                // Fallback for older browsers
+                const range = document.createRange();
+                range.selectNode(el);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
                 try {
                     document.execCommand('copy');
                     showCopySuccess(btnElement);
                 } catch (err) {
                     console.error('Failed to copy', err);
                 }
-                document.body.removeChild(textArea);
+                window.getSelection().removeAllRanges();
             }
+        }
+
+        function fallbackCopyTextToClipboard(text, btnElement) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showCopySuccess(btnElement);
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+            document.body.removeChild(textArea);
         }
 
         function showCopySuccess(btnElement) {

@@ -39,7 +39,6 @@
             }
         }
     </script>
-    
     <style>
         /* Custom scrollbar */
         ::-webkit-scrollbar { width: 8px; }
@@ -89,13 +88,13 @@
 </head>
 <body class="bg-white text-ft-black font-sans antialiased overflow-x-hidden">
 
-    <nav class="bg-ft-black text-white py-4 px-6 fixed w-full top-0 z-50 border-b border-gray-800">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
+    <nav class="bg-ft-black text-white py-4 px-4 sm:px-6 fixed w-full top-0 z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
+            <div class="flex items-center">
                 <!-- Simple CSS Logo representation -->
-                <div class="font-black text-2xl tracking-tighter flex items-center">
+                <div class="font-black text-xl sm:text-2xl tracking-tighter flex items-center">
                     <span class="text-white">Full</span>
-                    <span class="bg-ft-red text-white px-2 py-0.5 ml-1 rounded-sm">TANK</span>
+                    <span class="bg-ft-red text-white px-1.5 py-0.5 sm:px-2 ml-1 rounded-sm">TANK</span>
                 </div>
             </div>
             <div class="hidden lg:flex gap-6 font-semibold text-sm">
@@ -106,7 +105,8 @@
                 <a href="#why-us" class="hover:text-ft-red transition">Why Us</a>
             </div>
             <div>
-                <a href="#footer-cta" class="bg-ft-red hover:bg-red-700 text-white px-5 py-2 rounded-full font-bold transition shadow-red-glow text-sm">
+                <!-- FIXED: Mobile responsive button, routes to footer-cta -->
+                <a href="#footer-cta" class="bg-ft-red hover:bg-red-700 text-white px-4 py-2 sm:px-5 rounded-full font-bold transition shadow-red-glow text-xs sm:text-sm whitespace-nowrap">
                     Book Approval Call
                 </a>
             </div>
@@ -129,9 +129,11 @@
                     You are approved for premium diesel discounts up to <span class="font-bold text-white">$1.00+</span> per gallon. Choose the fuel card that fits your cash flow, secure your operations, and stop overpaying at the pump today.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
+                    <!-- FIXED: Route to footer -->
                     <a href="#footer-cta" class="bg-ft-red hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg text-center transition shadow-red-glow flex items-center justify-center gap-2">
                         <i class="ph-bold ph-calendar-plus text-2xl"></i> Order Fuel Cards Now
                     </a>
+                    <!-- FIXED: Route to calculator -->
                     <a href="#calculator" class="bg-white text-ft-black hover:bg-gray-200 px-8 py-4 rounded-lg font-bold text-lg text-center transition flex items-center justify-center gap-2">
                         <i class="ph-bold ph-calculator text-2xl"></i> Calculate Savings
                     </a>
@@ -179,7 +181,6 @@
                 </div>
             </div>
 
-            <!-- Split Payment Option Highlight -->
             <div class="bg-ft-black text-white p-8 md:p-12 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 mt-12 border-l-8 border-ft-red">
                 <div class="md:w-2/3">
                     <h3 class="text-3xl font-black mb-4 flex items-center gap-3">
@@ -190,6 +191,7 @@
                     </p>
                 </div>
                 <div class="md:w-1/3 flex justify-center md:justify-end w-full">
+                    <!-- FIXED: Route to footer -->
                     <a href="#footer-cta" class="bg-ft-red hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition shadow-red-glow whitespace-nowrap w-full text-center">
                         Discuss Options
                     </a>
@@ -209,7 +211,7 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Option 1: Credit Line (Deposit) - Highlighted -->
+                <!-- Option 1 -->
                 <div class="bg-ft-black text-white rounded-3xl border-4 border-ft-red relative transform md:-translate-y-4 shadow-2xl flex flex-col">
                     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-ft-red text-white font-bold py-1 px-6 rounded-full text-sm uppercase tracking-wider whitespace-nowrap shadow-lg">
                         The Premium Default
@@ -245,14 +247,13 @@
                                 <span class="text-gray-200"><strong class="text-white">$0 Monthly Fees</strong></span>
                             </li>
                         </ul>
-                        
                         <p class="text-sm text-gray-400 mb-8 italic">Best for fleets wanting maximum limits without credit checks, plus premium discounts.</p>
-                        
+                        <!-- FIXED: Route to footer -->
                         <a href="#footer-cta" class="block w-full bg-ft-red hover:bg-red-700 text-white text-center py-4 rounded-xl font-bold text-lg transition shadow-red-glow">Select This Card</a>
                     </div>
                 </div>
 
-                <!-- Option 2: Prepaid (The Test Drive) -->
+                <!-- Option 2 -->
                 <div class="bg-ft-gray rounded-3xl border border-gray-200 p-8 md:p-10 flex flex-col shadow-sm relative overflow-hidden">
                     <div class="absolute top-0 right-0 bg-ft-black text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-wider">
                         Risk-Free Test Drive
@@ -286,15 +287,14 @@
                             <span><strong class="text-ft-black">$0 Monthly Fees</strong></span>
                         </li>
                     </ul>
-                    
                     <p class="text-sm text-gray-800 mb-8 font-semibold bg-green-50 p-4 rounded-lg border border-green-200 shadow-inner">
                         🔥 <span class="text-ft-green font-black uppercase">Test Drive:</span> See us in practice without any deposit! Choose this prepaid option before paying the deposit if you want to avoid a credit line from the beginning.
                     </p>
-                    
+                    <!-- FIXED: Route to footer -->
                     <a href="#footer-cta" class="block w-full bg-ft-black hover:bg-gray-800 text-white text-center py-4 rounded-xl font-bold text-lg transition">Select This Card</a>
                 </div>
 
-                <!-- Option 3: Credit Line (No Deposit) -->
+                <!-- Option 3 -->
                 <div class="bg-ft-gray rounded-3xl border border-gray-200 p-8 md:p-10 flex flex-col shadow-sm">
                     <h3 class="text-3xl font-black mb-2 text-ft-black">Credit Line</h3>
                     <p class="text-gray-500 font-semibold mb-6">No Deposit (Partner PFC)</p>
@@ -325,9 +325,8 @@
                             <span><strong class="text-ft-red">$10 monthly subscription fee</strong></span>
                         </li>
                     </ul>
-                    
                     <p class="text-sm text-gray-500 mb-8 italic">For established fleets with excellent credit who prefer paying a small monthly fee over a security deposit.</p>
-                    
+                    <!-- FIXED: Route to footer -->
                     <a href="#footer-cta" class="block w-full bg-white border-2 border-gray-300 hover:border-ft-black text-ft-black text-center py-4 rounded-xl font-bold text-lg transition">Select This Card</a>
                 </div>
             </div>
@@ -356,6 +355,7 @@
                          </ul>
                      </div>
                  </div>
+                 <!-- FIXED: Route to footer -->
                  <a href="#footer-cta" class="inline-block bg-ft-red hover:bg-red-700 text-white px-10 py-4 rounded-xl font-bold text-lg transition shadow-red-glow uppercase tracking-wide">
                      Order Fuel Cards
                  </a>
@@ -364,15 +364,15 @@
         </div>
     </section>
 
-    <section id="calculator" class="py-24 px-6 bg-ft-black relative overflow-hidden">
+    <section id="calculator" class="py-24 px-4 sm:px-6 bg-ft-black relative overflow-hidden">
         <!-- Background element -->
         <div class="absolute top-1/2 left-0 w-full h-1/2 bg-ft-red opacity-5 transform -skew-y-3 -translate-y-1/2"></div>
         
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-16 relative">
-                <h2 class="text-ft-red font-black text-9xl opacity-10 absolute -top-16 left-1/2 transform -translate-x-1/2 select-none">03</h2>
-                <h2 class="text-4xl md:text-5xl font-black relative z-10 text-white tracking-tight">Savings Forecast Calculator</h2>
-                <p class="text-xl text-gray-400 mt-6 max-w-2xl mx-auto">
+                <h2 class="text-ft-red font-black text-8xl md:text-9xl opacity-10 absolute -top-12 md:-top-16 left-1/2 transform -translate-x-1/2 select-none">03</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black relative z-10 text-white tracking-tight">Savings Forecast Calculator</h2>
+                <p class="text-lg sm:text-xl text-gray-400 mt-6 max-w-2xl mx-auto">
                     Adjust the sliders below based on your current volume and see exactly how much you can add to your bottom line.
                 </p>
             </div>
@@ -380,20 +380,20 @@
             <div class="flex flex-col lg:flex-row gap-0 bg-white rounded-3xl shadow-2xl overflow-hidden">
                 
                 <!-- Calculator Inputs -->
-                <div class="lg:w-1/2 p-10 lg:p-14 bg-white">
-                    <h3 class="text-2xl font-black mb-8 text-ft-black flex items-center gap-3">
+                <div class="lg:w-1/2 p-6 sm:p-10 lg:p-14 bg-white">
+                    <h3 class="text-xl sm:text-2xl font-black mb-8 text-ft-black flex items-center gap-3">
                         <i class="ph-bold ph-sliders text-ft-red"></i> Input Your Fleet Data
                     </h3>
 
-                    <div class="space-y-10">
+                    <div class="space-y-8 sm:space-y-10">
                         <!-- Fleet Size -->
                         <div>
                             <div class="flex justify-between items-end mb-4">
-                                <label class="font-bold text-gray-700 text-lg">Number of Trucks</label>
-                                <div class="text-4xl font-black text-ft-red bg-ft-pink px-4 py-1 rounded-lg border border-red-100"><span id="val-trucks">1</span></div>
+                                <label class="font-bold text-gray-700 text-sm sm:text-lg w-1/2">Number of Trucks</label>
+                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right"><span id="val-trucks">1</span></div>
                             </div>
                             <input type="range" id="input-trucks" min="1" max="50" value="1" step="1">
-                            <div class="flex justify-between text-sm text-gray-400 mt-2 font-semibold">
+                            <div class="flex justify-between text-xs sm:text-sm text-gray-400 mt-2 font-semibold">
                                 <span>1</span>
                                 <span>50+</span>
                             </div>
@@ -402,13 +402,13 @@
                         <!-- Weekly Gallons -->
                         <div>
                             <div class="flex justify-between items-end mb-4">
-                                <label class="font-bold text-gray-700 text-lg">Weekly Gallons Per Truck</label>
-                                <div class="text-4xl font-black text-ft-red bg-ft-pink px-4 py-1 rounded-lg border border-red-100">
-                                    <span id="val-gallons">1000</span> <span class="text-lg text-ft-red font-bold">gal</span>
+                                <label class="font-bold text-gray-700 text-sm sm:text-lg w-1/2">Weekly Gallons Per Truck</label>
+                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right">
+                                    <span id="val-gallons">1000</span> <span class="text-sm sm:text-lg text-ft-red font-bold">gal</span>
                                 </div>
                             </div>
                             <input type="range" id="input-gallons" min="200" max="3000" value="1000" step="50">
-                            <div class="flex justify-between text-sm text-gray-400 mt-2 font-semibold">
+                            <div class="flex justify-between text-xs sm:text-sm text-gray-400 mt-2 font-semibold">
                                 <span>200 gal</span>
                                 <span>3,000 gal</span>
                             </div>
@@ -417,13 +417,13 @@
                         <!-- Average Pump Price -->
                         <div>
                             <div class="flex justify-between items-end mb-4">
-                                <label class="font-bold text-gray-700 text-lg">Average Price at the Pump</label>
-                                <div class="text-4xl font-black text-ft-red bg-ft-pink px-4 py-1 rounded-lg border border-red-100">
-                                    <span class="text-lg text-ft-red font-bold">$</span><span id="val-price">3.50</span><span class="text-lg text-ft-red font-bold"> /gal</span>
+                                <label class="font-bold text-gray-700 text-sm sm:text-lg w-1/2">Average Price at the Pump</label>
+                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right whitespace-nowrap">
+                                    <span class="text-sm sm:text-lg text-ft-red font-bold">$</span><span id="val-price">3.50</span><span class="text-sm sm:text-lg text-ft-red font-bold"> /gal</span>
                                 </div>
                             </div>
                             <input type="range" id="input-price" min="2.00" max="7.00" value="3.50" step="0.05">
-                            <div class="flex justify-between text-sm text-gray-400 mt-2 font-semibold">
+                            <div class="flex justify-between text-xs sm:text-sm text-gray-400 mt-2 font-semibold">
                                 <span>$2.00</span>
                                 <span>$7.00</span>
                             </div>
@@ -432,14 +432,14 @@
                         <!-- Discount Cents -->
                         <div>
                             <div class="flex justify-between items-end mb-4">
-                                <label class="font-bold text-gray-700 text-lg">Expected Savings vs. Current Price</label>
-                                <div class="text-4xl font-black text-ft-red bg-ft-pink px-4 py-1 rounded-lg border border-red-100">
-                                    <span id="val-cents">21</span><span class="text-lg text-ft-red font-bold">¢ /gal</span>
+                                <label class="font-bold text-gray-700 text-sm sm:text-lg w-1/2">Expected Savings vs. Current Price</label>
+                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right whitespace-nowrap">
+                                    <span id="val-cents">21</span><span class="text-sm sm:text-lg text-ft-red font-bold">¢ /gal</span>
                                 </div>
                             </div>
-                            <!-- Updated minimum to 1 and maximum to 100 (which is $1.00) -->
+                            <!-- Max set to 100 for $1.00 -->
                             <input type="range" id="input-cents" min="1" max="100" value="21" step="1">
-                            <div class="flex justify-between text-sm text-gray-400 mt-2 font-semibold">
+                            <div class="flex justify-between text-xs sm:text-sm text-gray-400 mt-2 font-semibold">
                                 <span>1¢</span>
                                 <span>$1.00</span>
                             </div>
@@ -448,39 +448,41 @@
                 </div>
 
                 <!-- Calculator Outputs -->
-                <div class="lg:w-1/2 bg-gray-50 border-l border-gray-200 p-10 lg:p-14 flex flex-col justify-center">
-                    <h3 class="text-xl text-gray-500 font-bold mb-8 uppercase tracking-widest flex items-center gap-2">
+                <div class="lg:w-1/2 bg-gray-50 border-t lg:border-t-0 lg:border-l border-gray-200 p-6 sm:p-10 lg:p-14 flex flex-col justify-center">
+                    <h3 class="text-lg sm:text-xl text-gray-500 font-bold mb-6 sm:mb-8 uppercase tracking-widest flex items-center gap-2">
                         <i class="ph-bold ph-chart-line-up"></i> Your Profit Recovered
                     </h3>
                     
-                    <div class="space-y-8">
-                        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center">
+                    <div class="space-y-6 sm:space-y-8">
+                        <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                             <div>
-                                <p class="text-gray-500 font-bold text-lg">Current Monthly Spend</p>
-                                <p class="text-sm text-gray-400">Before Full Tank discounts</p>
+                                <p class="text-gray-500 font-bold text-base sm:text-lg">Current Monthly Spend</p>
+                                <p class="text-xs sm:text-sm text-gray-400">Before Full Tank discounts</p>
                             </div>
-                            <p class="text-3xl font-black text-gray-400 line-through" id="out-spend-monthly">$15,166.67</p>
+                            <p class="text-2xl sm:text-3xl font-black text-gray-400 line-through" id="out-spend-monthly">$15,166.67</p>
                         </div>
 
-                        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center">
-                            <p class="text-gray-500 font-bold text-lg">Weekly Savings</p>
-                            <p class="text-4xl font-black text-ft-black" id="out-weekly">$210.00</p>
+                        <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center gap-4">
+                            <p class="text-gray-500 font-bold text-base sm:text-lg">Weekly Savings</p>
+                            <p class="text-2xl sm:text-4xl font-black text-ft-black break-all text-right" id="out-weekly">$210.00</p>
                         </div>
                         
-                        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center">
-                            <p class="text-gray-500 font-bold text-lg">Monthly Savings</p>
-                            <p class="text-4xl font-black text-ft-black" id="out-monthly">$910.00</p>
+                        <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center gap-4">
+                            <p class="text-gray-500 font-bold text-base sm:text-lg">Monthly Savings</p>
+                            <p class="text-2xl sm:text-4xl font-black text-ft-black break-all text-right" id="out-monthly">$910.00</p>
                         </div>
                         
-                        <div class="bg-ft-black p-8 rounded-2xl shadow-xl transform scale-105 border-b-4 border-ft-red">
-                            <p class="text-gray-400 font-bold text-xl mb-2">Yearly Savings Forecast</p>
-                            <p class="text-6xl lg:text-7xl font-black text-ft-red mb-2" id="out-yearly">$10,920.00</p>
-                            <p class="text-gray-400 italic text-sm">That's money going straight back into your business for maintenance, tires, or truck payments.</p>
+                        <!-- Transform scale disabled on small mobile screens to prevent overflow -->
+                        <div class="bg-ft-black p-6 sm:p-8 rounded-2xl shadow-xl transform md:scale-105 border-b-4 border-ft-red">
+                            <p class="text-gray-400 font-bold text-lg sm:text-xl mb-2">Yearly Savings Forecast</p>
+                            <p class="text-5xl md:text-6xl lg:text-7xl font-black text-ft-red mb-2 break-words" id="out-yearly">$10,920.00</p>
+                            <p class="text-gray-400 italic text-xs sm:text-sm">That's money going straight back into your business for maintenance, tires, or truck payments.</p>
                         </div>
                     </div>
 
-                    <div class="mt-10">
-                        <a href="#footer-cta" class="block w-full bg-ft-red hover:bg-red-700 text-white text-center px-8 py-5 rounded-xl font-bold text-xl transition shadow-red-glow">
+                    <div class="mt-8 sm:mt-10">
+                        <!-- FIXED: Route to footer -->
+                        <a href="#footer-cta" class="block w-full bg-ft-red hover:bg-red-700 text-white text-center px-4 sm:px-8 py-4 sm:py-5 rounded-xl font-bold text-lg sm:text-xl transition shadow-red-glow">
                             Claim These Savings Now
                         </a>
                     </div>
@@ -559,10 +561,9 @@
                             <i class="ph-bold ph-receipt-x text-3xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-black mb-2 text-ft-black">No Hidden Fees, Just Transparent Savings.</h3>
+                            <h3 class="text-2xl font-black mb-2 text-ft-black">We don't have hidden fees!</h3>
                             <p class="text-gray-600 text-lg leading-relaxed">
-                                Many fuel card companies advertise flashy discounts on their maps, only to drain your profits later with hidden fees. If you aren’t 100% sure what your current provider is charging you, challenge them to provide a full breakdown of their applied fees.<br><br>
-                                At Full Tank, what you see is what you get. We will run a side-by-side price comparison with your current card to show exactly how much you will save with us every month and year. Want proof right now? Check our real-time rates on the live fuel map and apply promo code <strong class="text-ft-black">diesel8k</strong> to unlock the discounts.
+                                Other companies add you charges you never know thinking you get better diesel discounts when you see the discounts on fuel maps. Ask your current provider to offer you all their applied fees if you don’t know what you pay. We can help you to do a price comparison with your current fuel card prices and our fuel cards and see how much you will save with us every month and year. You can check our real time discounts on this fuel map page. Apply promo code <strong class="text-ft-black">diesel8k</strong> to see the discounts on the map.
                             </p>
                         </div>
                     </div>
@@ -644,12 +645,14 @@
             <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto leading-relaxed">
                 Know another fleet owner looking to cut fuel costs? Refer a friend or partner fleet. When they sign up and start pumping, you receive a <strong class="text-white bg-red-800 px-2 py-0.5 rounded">$150 credit</strong> applied directly to your weekly invoice.
             </p>
+            <!-- FIXED: Route to footer -->
             <a href="#footer-cta" class="inline-block bg-white text-ft-red hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg transition shadow-lg">
                 Ask About Our Referral Program
             </a>
         </div>
     </section>
 
+    <!-- The only section that holds the direct link to the Google Calendar -->
     <section id="footer-cta" class="bg-ft-black text-white py-24 px-6 border-t-8 border-gray-800 relative overflow-hidden">
         <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-ft-red via-ft-black to-ft-black"></div>
         <div class="max-w-4xl mx-auto text-center relative z-10">
@@ -658,7 +661,7 @@
                 You know the facts, you see the math, and you understand the deposit secures your business. It’s time to activate your $5,500 credit line.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <!-- This is the ONLY button that opens the calendar link now -->
+                <!-- THE ONLY CALENDAR LINK -->
                 <a href="https://calendar.app.google/6G9Jda1HktDGuE1o7" target="_blank" class="bg-ft-red hover:bg-red-700 text-white px-10 py-5 rounded-xl font-black text-xl transition shadow-red-glow flex items-center justify-center gap-2">
                     <i class="ph-bold ph-calendar-plus text-2xl"></i> Book Activation Call
                 </a>

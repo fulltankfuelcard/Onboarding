@@ -105,7 +105,6 @@
                 <a href="#why-us" class="hover:text-ft-red transition">Why Us</a>
             </div>
             <div>
-                <!-- FIXED: Mobile responsive button, routes to footer-cta -->
                 <a href="#footer-cta" class="bg-ft-red hover:bg-red-700 text-white px-4 py-2 sm:px-5 rounded-full font-bold transition shadow-red-glow text-xs sm:text-sm whitespace-nowrap">
                     Book Approval Call
                 </a>
@@ -129,11 +128,9 @@
                     You are approved for premium diesel discounts up to <span class="font-bold text-white">$1.00+</span> per gallon. Choose the fuel card that fits your cash flow, secure your operations, and stop overpaying at the pump today.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <!-- FIXED: Route to footer -->
                     <a href="#footer-cta" class="bg-ft-red hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg text-center transition shadow-red-glow flex items-center justify-center gap-2">
                         <i class="ph-bold ph-calendar-plus text-2xl"></i> Order Fuel Cards Now
                     </a>
-                    <!-- FIXED: Route to calculator -->
                     <a href="#calculator" class="bg-white text-ft-black hover:bg-gray-200 px-8 py-4 rounded-lg font-bold text-lg text-center transition flex items-center justify-center gap-2">
                         <i class="ph-bold ph-calculator text-2xl"></i> Calculate Savings
                     </a>
@@ -181,6 +178,7 @@
                 </div>
             </div>
 
+            <!-- Split Payment Option Highlight -->
             <div class="bg-ft-black text-white p-8 md:p-12 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 mt-12 border-l-8 border-ft-red">
                 <div class="md:w-2/3">
                     <h3 class="text-3xl font-black mb-4 flex items-center gap-3">
@@ -191,7 +189,6 @@
                     </p>
                 </div>
                 <div class="md:w-1/3 flex justify-center md:justify-end w-full">
-                    <!-- FIXED: Route to footer -->
                     <a href="#footer-cta" class="bg-ft-red hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition shadow-red-glow whitespace-nowrap w-full text-center">
                         Discuss Options
                     </a>
@@ -210,8 +207,9 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Option 1 -->
+            <!-- Grid container for all three cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Option 1: Credit Line (Deposit) - Highlighted -->
                 <div class="bg-ft-black text-white rounded-3xl border-4 border-ft-red relative transform md:-translate-y-4 shadow-2xl flex flex-col">
                     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-ft-red text-white font-bold py-1 px-6 rounded-full text-sm uppercase tracking-wider whitespace-nowrap shadow-lg">
                         The Premium Default
@@ -240,94 +238,101 @@
                             </li>
                             <li class="flex items-start gap-3">
                                 <i class="ph-fill ph-check-circle text-ft-red text-xl mt-1"></i>
-                                <span class="text-gray-200"><strong class="text-white">Immediate Approval</strong> (No strict credit checks)</span>
+                                <span class="text-gray-200"><strong class="text-white">Immediate Approval</strong> (only soft pull credit checks)</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <i class="ph-fill ph-check-circle text-ft-red text-xl mt-1"></i>
                                 <span class="text-gray-200"><strong class="text-white">$0 Monthly Fees</strong></span>
                             </li>
                         </ul>
-                        <p class="text-sm text-gray-400 mb-8 italic">Best for fleets wanting maximum limits without credit checks, plus premium discounts.</p>
-                        <!-- FIXED: Route to footer -->
+                        
+                        <p class="text-sm text-gray-400 mb-8 italic">Best for fleets wanting maximum limits with premium discounts.</p>
+                        
                         <a href="#footer-cta" class="block w-full bg-ft-red hover:bg-red-700 text-white text-center py-4 rounded-xl font-bold text-lg transition shadow-red-glow">Select This Card</a>
                     </div>
                 </div>
 
-                <!-- Option 2 -->
+                <!-- Option 2: Prepaid (The Test Drive) -->
                 <div class="bg-ft-gray rounded-3xl border border-gray-200 p-8 md:p-10 flex flex-col shadow-sm relative overflow-hidden">
                     <div class="absolute top-0 right-0 bg-ft-black text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-wider">
                         Risk-Free Test Drive
                     </div>
-                    <h3 class="text-3xl font-black mb-2 text-ft-black">Prepaid Card</h3>
-                    <p class="text-gray-500 font-semibold mb-6">Cash-Flow Alternative</p>
-                    
-                    <div class="mb-6 pb-6 border-b border-gray-300">
-                        <span class="text-5xl font-black text-ft-black">Your Balance</span>
-                    </div>
+                    <div class="flex-grow flex flex-col">
+                        <h3 class="text-3xl font-black mb-2 text-ft-black">Prepaid Card</h3>
+                        <p class="text-gray-500 font-semibold mb-6">Cash-Flow Alternative</p>
+                        
+                        <div class="mb-6 pb-6 border-b border-gray-300">
+                            <span class="text-5xl font-black text-ft-black">Your Balance</span>
+                        </div>
 
-                    <ul class="space-y-4 mb-8 flex-grow text-gray-700">
-                        <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-check-circle text-ft-green text-xl mt-1"></i>
-                            <span><strong class="text-ft-black">$0 Deposit required</strong></span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-check-circle text-ft-green text-xl mt-1"></i>
-                            <span><strong class="text-ft-black">Premium Discounts</strong> (Highest savings tier)</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-check-circle text-ft-green text-xl mt-1"></i>
-                            <span>Load your own funds (<strong>top up up to 2 hours on fuel balance</strong>)</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-check-circle text-ft-green text-xl mt-1"></i>
-                            <span>Zero credit checks needed</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-check-circle text-ft-green text-xl mt-1"></i>
-                            <span><strong class="text-ft-black">$0 Monthly Fees</strong></span>
-                        </li>
-                    </ul>
-                    <p class="text-sm text-gray-800 mb-8 font-semibold bg-green-50 p-4 rounded-lg border border-green-200 shadow-inner">
-                        🔥 <span class="text-ft-green font-black uppercase">Test Drive:</span> See us in practice without any deposit! Choose this prepaid option before paying the deposit if you want to avoid a credit line from the beginning.
-                    </p>
-                    <!-- FIXED: Route to footer -->
-                    <a href="#footer-cta" class="block w-full bg-ft-black hover:bg-gray-800 text-white text-center py-4 rounded-xl font-bold text-lg transition">Select This Card</a>
+                        <ul class="space-y-4 mb-8 flex-grow text-gray-700">
+                            <li class="flex items-start gap-3">
+                                <i class="ph-fill ph-check-circle text-ft-green text-xl mt-1"></i>
+                                <span><strong class="text-ft-black">$0 Deposit required</strong></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-fill ph-check-circle text-ft-green text-xl mt-1"></i>
+                                <span><strong class="text-ft-black">Premium Discounts</strong> (Highest savings tier)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-fill ph-check-circle text-ft-green text-xl mt-1"></i>
+                                <span>Load your own funds (<strong>top up up to 2 hours on fuel balance</strong>)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-fill ph-check-circle text-ft-green text-xl mt-1"></i>
+                                <span>Immediate Approval (only soft pull credit checks)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-fill ph-check-circle text-ft-green text-xl mt-1"></i>
+                                <span><strong class="text-ft-black">$0 Monthly Fees</strong></span>
+                            </li>
+                        </ul>
+                        
+                        <p class="text-sm text-gray-800 mb-8 font-semibold bg-green-50 p-4 rounded-lg border border-green-200 shadow-inner">
+                            🔥 <span class="text-ft-green font-black uppercase">Test Drive:</span> See us in practice without any deposit! Choose this prepaid option before paying the deposit if you want to avoid a credit line from the beginning.
+                        </p>
+                        
+                        <a href="#footer-cta" class="block w-full bg-ft-black hover:bg-gray-800 text-white text-center py-4 rounded-xl font-bold text-lg transition">Select This Card</a>
+                    </div>
                 </div>
+
                 <!-- Option 3: Credit Line (No Deposit) -->
                 <div class="bg-ft-gray rounded-3xl border border-gray-200 p-8 md:p-10 flex flex-col shadow-sm">
-                    <h3 class="text-3xl font-black mb-2 text-ft-black">Credit Line</h3>
-                    <p class="text-gray-500 font-semibold mb-6">No Deposit (Partner PFC)</p>
-                    
-                    <div class="mb-6 pb-6 border-b border-gray-300">
-                        <span class="text-4xl font-black text-ft-black leading-tight">Based on Credit</span>
-                    </div>
+                    <div class="flex-grow flex flex-col">
+                        <h3 class="text-3xl font-black mb-2 text-ft-black">Credit Line</h3>
+                        <p class="text-gray-500 font-semibold mb-6">No Deposit (Partner PFC)</p>
+                        
+                        <div class="mb-6 pb-6 border-b border-gray-300">
+                            <span class="text-4xl font-black text-ft-black leading-tight">Based on Credit</span>
+                        </div>
 
-                    <ul class="space-y-4 mb-8 flex-grow text-gray-700">
-                        <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-info text-gray-500 text-xl mt-1"></i>
-                            <span><strong class="text-ft-black">$0 Deposit required</strong></span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-info text-gray-500 text-xl mt-1"></i>
-                            <span>Standard Discounts (5-7¢ <em>less</em> than Premium)</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-info text-gray-500 text-xl mt-1"></i>
-                            <span>Review applications for credit line from 650+ score</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-info text-gray-500 text-xl mt-1"></i>
-                            <span>Takes 5-7 business days to approve</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-warning-circle text-ft-red text-xl mt-1"></i>
-                            <span><strong class="text-ft-red">$10 monthly subscription fee</strong></span>
-                        </li>
-                    </ul>
-                    
-                    <p class="text-sm text-gray-500 mb-8 italic">For established fleets with excellent credit who prefer paying a small monthly fee over a security deposit.</p>
-                    <!-- FIXED: Route to footer -->
-                    <a href="#footer-cta" class="block w-full bg-white border-2 border-gray-300 hover:border-ft-black text-ft-black text-center py-4 rounded-xl font-bold text-lg transition">Select This Card</a>
+                        <ul class="space-y-4 mb-8 flex-grow text-gray-700">
+                            <li class="flex items-start gap-3">
+                                <i class="ph-fill ph-info text-gray-500 text-xl mt-1"></i>
+                                <span><strong class="text-ft-black">$0 Deposit required</strong></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-fill ph-info text-gray-500 text-xl mt-1"></i>
+                                <span>Standard Discounts (5-7¢ <em>less</em> than Premium)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-fill ph-info text-gray-500 text-xl mt-1"></i>
+                                <span>Review applications for credit line from 650+ score</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-fill ph-info text-gray-500 text-xl mt-1"></i>
+                                <span>Takes 5-7 business days to approve</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-fill ph-warning-circle text-ft-red text-xl mt-1"></i>
+                                <span><strong class="text-ft-red">$10 monthly subscription fee</strong></span>
+                            </li>
+                        </ul>
+                        
+                        <p class="text-sm text-gray-500 mb-8 italic">For established fleets with excellent credit who prefer paying a small monthly fee over a security deposit.</p>
+                        
+                        <a href="#footer-cta" class="block w-full bg-white border-2 border-gray-300 hover:border-ft-black text-ft-black text-center py-4 rounded-xl font-bold text-lg transition">Select This Card</a>
+                    </div>
                 </div>
             </div>
             
@@ -355,7 +360,6 @@
                          </ul>
                      </div>
                  </div>
-                 <!-- FIXED: Route to footer -->
                  <a href="#footer-cta" class="inline-block bg-ft-red hover:bg-red-700 text-white px-10 py-4 rounded-xl font-bold text-lg transition shadow-red-glow uppercase tracking-wide">
                      Order Fuel Cards
                  </a>
@@ -388,9 +392,9 @@
                     <div class="space-y-8 sm:space-y-10">
                         <!-- Fleet Size -->
                         <div>
-                            <div class="flex justify-between items-end mb-4">
-                                <label class="font-bold text-gray-700 text-sm sm:text-lg w-1/2">Number of Trucks</label>
-                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right"><span id="val-trucks">1</span></div>
+                            <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end mb-4 gap-2">
+                                <label class="font-bold text-gray-700 text-sm sm:text-lg">Number of Trucks</label>
+                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right w-full sm:w-auto"><span id="val-trucks">1</span></div>
                             </div>
                             <input type="range" id="input-trucks" min="1" max="50" value="1" step="1">
                             <div class="flex justify-between text-xs sm:text-sm text-gray-400 mt-2 font-semibold">
@@ -401,9 +405,9 @@
 
                         <!-- Weekly Gallons -->
                         <div>
-                            <div class="flex justify-between items-end mb-4">
-                                <label class="font-bold text-gray-700 text-sm sm:text-lg w-1/2">Weekly Gallons Per Truck</label>
-                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right">
+                            <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end mb-4 gap-2">
+                                <label class="font-bold text-gray-700 text-sm sm:text-lg">Weekly Gallons Per Truck</label>
+                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right w-full sm:w-auto">
                                     <span id="val-gallons">1000</span> <span class="text-sm sm:text-lg text-ft-red font-bold">gal</span>
                                 </div>
                             </div>
@@ -416,9 +420,9 @@
 
                         <!-- Average Pump Price -->
                         <div>
-                            <div class="flex justify-between items-end mb-4">
-                                <label class="font-bold text-gray-700 text-sm sm:text-lg w-1/2">Average Price at the Pump</label>
-                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right whitespace-nowrap">
+                            <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end mb-4 gap-2">
+                                <label class="font-bold text-gray-700 text-sm sm:text-lg">Average Price at the Pump</label>
+                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right w-full sm:w-auto">
                                     <span class="text-sm sm:text-lg text-ft-red font-bold">$</span><span id="val-price">3.50</span><span class="text-sm sm:text-lg text-ft-red font-bold"> /gal</span>
                                 </div>
                             </div>
@@ -431,13 +435,12 @@
 
                         <!-- Discount Cents -->
                         <div>
-                            <div class="flex justify-between items-end mb-4">
-                                <label class="font-bold text-gray-700 text-sm sm:text-lg w-1/2">Expected Savings vs. Current Price</label>
-                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right whitespace-nowrap">
+                            <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end mb-4 gap-2">
+                                <label class="font-bold text-gray-700 text-sm sm:text-lg">Expected Savings vs. Current Price</label>
+                                <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right w-full sm:w-auto">
                                     <span id="val-cents">21</span><span class="text-sm sm:text-lg text-ft-red font-bold">¢ /gal</span>
                                 </div>
                             </div>
-                            <!-- Max set to 100 for $1.00 -->
                             <input type="range" id="input-cents" min="1" max="100" value="21" step="1">
                             <div class="flex justify-between text-xs sm:text-sm text-gray-400 mt-2 font-semibold">
                                 <span>1¢</span>
@@ -453,7 +456,7 @@
                         <i class="ph-bold ph-chart-line-up"></i> Your Profit Recovered
                     </h3>
                     
-                    <div class="space-y-6 sm:space-y-8">
+                    <div class="space-y-4 sm:space-y-8">
                         <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                             <div>
                                 <p class="text-gray-500 font-bold text-base sm:text-lg">Current Monthly Spend</p>
@@ -462,26 +465,25 @@
                             <p class="text-2xl sm:text-3xl font-black text-gray-400 line-through" id="out-spend-monthly">$15,166.67</p>
                         </div>
 
-                        <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center gap-4">
-                            <p class="text-gray-500 font-bold text-base sm:text-lg">Weekly Savings</p>
-                            <p class="text-2xl sm:text-4xl font-black text-ft-black break-all text-right" id="out-weekly">$210.00</p>
+                        <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center gap-2">
+                            <p class="text-gray-500 font-bold text-sm sm:text-lg">Weekly Savings</p>
+                            <p class="text-xl sm:text-4xl font-black text-ft-black break-all text-right" id="out-weekly">$210.00</p>
                         </div>
                         
-                        <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center gap-4">
-                            <p class="text-gray-500 font-bold text-base sm:text-lg">Monthly Savings</p>
-                            <p class="text-2xl sm:text-4xl font-black text-ft-black break-all text-right" id="out-monthly">$910.00</p>
+                        <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center gap-2">
+                            <p class="text-gray-500 font-bold text-sm sm:text-lg">Monthly Savings</p>
+                            <p class="text-xl sm:text-4xl font-black text-ft-black break-all text-right" id="out-monthly">$910.00</p>
                         </div>
                         
                         <!-- Transform scale disabled on small mobile screens to prevent overflow -->
                         <div class="bg-ft-black p-6 sm:p-8 rounded-2xl shadow-xl transform md:scale-105 border-b-4 border-ft-red">
-                            <p class="text-gray-400 font-bold text-lg sm:text-xl mb-2">Yearly Savings Forecast</p>
-                            <p class="text-5xl md:text-6xl lg:text-7xl font-black text-ft-red mb-2 break-words" id="out-yearly">$10,920.00</p>
+                            <p class="text-gray-400 font-bold text-base sm:text-xl mb-1 sm:mb-2">Yearly Savings Forecast</p>
+                            <p class="text-4xl sm:text-6xl lg:text-7xl font-black text-ft-red mb-2 break-words" id="out-yearly">$10,920.00</p>
                             <p class="text-gray-400 italic text-xs sm:text-sm">That's money going straight back into your business for maintenance, tires, or truck payments.</p>
                         </div>
                     </div>
 
                     <div class="mt-8 sm:mt-10">
-                        <!-- FIXED: Route to footer -->
                         <a href="#footer-cta" class="block w-full bg-ft-red hover:bg-red-700 text-white text-center px-4 sm:px-8 py-4 sm:py-5 rounded-xl font-bold text-lg sm:text-xl transition shadow-red-glow">
                             Claim These Savings Now
                         </a>
@@ -501,18 +503,18 @@
                 </p>
             </div>
 
-            <div class="bg-ft-black rounded-3xl p-2 shadow-2xl relative overflow-hidden border border-gray-800">
-                <!-- Promo code overlay banner -->
-                <div class="absolute top-6 left-6 right-6 md:right-auto z-20 bg-ft-red text-white p-4 rounded-xl shadow-lg border border-red-400 flex flex-col md:flex-row items-center gap-4">
-                    <div>
-                        <p class="text-xs font-bold uppercase tracking-wider mb-1 opacity-90">Required to view discounts</p>
-                        <p class="font-medium text-sm">Apply Promo Code:</p>
-                    </div>
-                    <div class="bg-white text-ft-black font-black text-2xl px-4 py-2 rounded-lg tracking-widest border-2 border-dashed border-gray-300">
-                        diesel8k
-                    </div>
+            <!-- Promo code overlay banner separated and placed above iframe -->
+            <div class="bg-ft-red text-white p-4 rounded-xl shadow-lg border border-red-400 flex flex-col md:flex-row items-center justify-center gap-4 mb-6 max-w-2xl mx-auto">
+                <div class="text-center md:text-right">
+                    <p class="text-xs font-bold uppercase tracking-wider mb-1 opacity-90">Required to view discounts</p>
+                    <p class="font-medium text-sm">Apply Promo Code:</p>
                 </div>
-                
+                <div class="bg-white text-ft-black font-black text-2xl px-6 py-2 rounded-lg tracking-widest border-2 border-dashed border-gray-300">
+                    diesel8k
+                </div>
+            </div>
+
+            <div class="bg-ft-black rounded-3xl p-2 shadow-2xl relative overflow-hidden border border-gray-800">
                 <!-- Iframe for fuel map -->
                 <div class="w-full h-[600px] bg-gray-900 rounded-2xl overflow-hidden relative z-10">
                     <iframe 
@@ -561,9 +563,10 @@
                             <i class="ph-bold ph-receipt-x text-3xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-black mb-2 text-ft-black">We don't have hidden fees!</h3>
+                            <h3 class="text-2xl font-black mb-2 text-ft-black">No Hidden Fees, Just Transparent Savings.</h3>
                             <p class="text-gray-600 text-lg leading-relaxed">
-                                Other companies add you charges you never know thinking you get better diesel discounts when you see the discounts on fuel maps. Ask your current provider to offer you all their applied fees if you don’t know what you pay. We can help you to do a price comparison with your current fuel card prices and our fuel cards and see how much you will save with us every month and year. You can check our real time discounts on this fuel map page. Apply promo code <strong class="text-ft-black">diesel8k</strong> to see the discounts on the map.
+                                Many fuel card companies advertise flashy discounts on their maps, only to drain your profits later with hidden fees. If you aren’t 100% sure what your current provider is charging you, challenge them to provide a full breakdown of their applied fees.<br><br>
+                                At Full Tank, what you see is what you get. We will run a side-by-side price comparison with your current card to show exactly how much you will save with us every month and year. Want proof right now? Check our real-time rates on the live fuel map and apply promo code <strong class="text-ft-black">diesel8k</strong> to unlock the discounts.
                             </p>
                         </div>
                     </div>
@@ -645,14 +648,12 @@
             <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto leading-relaxed">
                 Know another fleet owner looking to cut fuel costs? Refer a friend or partner fleet. When they sign up and start pumping, you receive a <strong class="text-white bg-red-800 px-2 py-0.5 rounded">$150 credit</strong> applied directly to your weekly invoice.
             </p>
-            <!-- FIXED: Route to footer -->
             <a href="#footer-cta" class="inline-block bg-white text-ft-red hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg transition shadow-lg">
                 Ask About Our Referral Program
             </a>
         </div>
     </section>
 
-    <!-- The only section that holds the direct link to the Google Calendar -->
     <section id="footer-cta" class="bg-ft-black text-white py-24 px-6 border-t-8 border-gray-800 relative overflow-hidden">
         <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-ft-red via-ft-black to-ft-black"></div>
         <div class="max-w-4xl mx-auto text-center relative z-10">
@@ -661,7 +662,6 @@
                 You know the facts, you see the math, and you understand the deposit secures your business. It’s time to activate your $5,500 credit line.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <!-- THE ONLY CALENDAR LINK -->
                 <a href="https://calendar.app.google/6G9Jda1HktDGuE1o7" target="_blank" class="bg-ft-red hover:bg-red-700 text-white px-10 py-5 rounded-xl font-black text-xl transition shadow-red-glow flex items-center justify-center gap-2">
                     <i class="ph-bold ph-calendar-plus text-2xl"></i> Book Activation Call
                 </a>

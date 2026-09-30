@@ -49,6 +49,7 @@
             place-content: center;
             cursor: pointer;
             transition: all 0.1s ease-in-out;
+            flex-shrink: 0; /* Prevent checkbox from shrinking on small screens */
         }
 
         .checklist-item input[type="checkbox"]::before {
@@ -85,11 +86,18 @@
             transition: width 0.3s ease;
         }
         
+        /* Adjusted massive text to break better on very small screens */
         .text-massive {
-            font-size: clamp(5rem, 15vw, 12rem);
+            font-size: clamp(4rem, 15vw, 12rem);
             line-height: 0.8;
             font-weight: 900;
             letter-spacing: -0.05em;
+            word-break: break-word; /* Ensure it doesn't cause horizontal scroll */
+        }
+
+        /* Utility to force breaks on long URLs/emails */
+        .break-words-all {
+            word-break: break-all;
         }
     </style>
 </head>
@@ -99,34 +107,39 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <span class="font-black text-xl sm:text-2xl text-deepBlack tracking-tighter uppercase whitespace-nowrap">Full TANK <span class="text-primaryRed font-light mx-1">|</span> Onboarding</span>
+                    <span class="font-black text-lg sm:text-xl md:text-2xl text-deepBlack tracking-tighter uppercase whitespace-nowrap">
+                        Full TANK <span class="text-primaryRed font-light mx-1">|</span> <span class="hidden sm:inline">Onboarding</span>
+                    </span>
                 </div>
                 <div class="flex flex-col items-end">
-                    <span class="text-xs font-bold text-deepBlack uppercase tracking-widest mb-1" id="progress-text">0% COMPLETED</span>
-                    <div class="w-24 sm:w-64 bg-gray-200 h-2">
+                    <span class="text-[10px] sm:text-xs font-bold text-deepBlack uppercase tracking-widest mb-1" id="progress-text">0% COMPLETED</span>
+                    <div class="w-20 sm:w-48 md:w-64 bg-gray-200 h-2">
                         <div id="progress-bar" class="bg-primaryRed h-2" style="width: 0%"></div>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-    <header class="bg-deepBlack text-white py-16 md:py-24 border-b-8 border-primaryRed">
+
+    <header class="bg-deepBlack text-white py-12 sm:py-16 md:py-24 border-b-4 md:border-b-8 border-primaryRed">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/3 mb-4 md:mb-0 hidden md:block">
+            <div class="md:w-1/3 mb-6 md:mb-0 hidden md:block">
                 <div class="text-primaryRed text-massive">GO</div>
             </div>
             <div class="w-full md:w-2/3 md:pl-12">
-                <h4 class="text-primaryRed font-bold tracking-widest uppercase text-xs md:text-sm mb-4">ACTION PLAN</h4>
-                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 leading-none">ONBOARDING<br>CHECKLIST</h1>
-                <p class="text-lg md:text-xl text-gray-300 max-w-2xl font-light">
+                <h4 class="text-primaryRed font-bold tracking-widest uppercase text-xs md:text-sm mb-3 md:mb-4">ACTION PLAN</h4>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight mb-4 md:mb-6 leading-none word-break break-word">
+                    ONBOARDING<br class="hidden sm:block">CHECKLIST
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl font-light">
                     Complete these steps to ensure your fleet gets set up without missing a beat. Track your progress here.
                 </p>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             
             <div class="hidden lg:block lg:col-span-3">
                 <div class="sticky top-32">
@@ -140,156 +153,154 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-9 space-y-16 md:space-y-24">
+            <div class="lg:col-span-9 space-y-12 md:space-y-24">
                 
-                <!-- STAGE 1 -->
                 <section id="stage-1" class="scroll-mt-32">
-                    <div class="bg-deepBlack text-white p-6 md:p-8 mb-8 md:mb-12 flex flex-col items-start shadow-lg border-l-8 border-primaryRed overflow-hidden relative">
-                        <div class="text-primaryRed font-bold tracking-widest uppercase text-xs mb-2 block relative z-10 w-full text-left">SECTION</div>
-                        <div class="flex flex-col md:flex-row md:items-center w-full mt-2">
-                             <div class="text-primaryRed text-6xl md:text-8xl font-black mb-2 md:mb-0 md:mr-8 leading-none relative z-10 order-first">01</div>
+                    <!-- Adjusted border-l and padding for mobile -->
+                    <div class="bg-deepBlack text-white p-5 sm:p-6 md:p-8 mb-6 md:mb-12 flex flex-col items-start shadow-lg border-l-4 sm:border-l-8 border-primaryRed overflow-hidden relative w-full">
+                        <div class="text-primaryRed font-bold tracking-widest uppercase text-[10px] sm:text-xs mb-2 block relative z-10 w-full text-left">SECTION</div>
+                        <div class="flex flex-col md:flex-row md:items-center w-full mt-1 sm:mt-2">
+                             <div class="text-primaryRed text-5xl sm:text-6xl md:text-8xl font-black mb-2 md:mb-0 md:mr-8 leading-none relative z-10 order-first">01</div>
                              <div class="w-full relative z-10">
-                                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold break-words">Admin & Portal Setup</h2>
-                                 <p class="text-gray-400 mt-2 font-light text-sm sm:text-base">Secure your access and review guidelines.</p>
+                                 <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold break-words">Admin & Portal Setup</h2>
+                                 <p class="text-gray-400 mt-1 sm:mt-2 font-light text-xs sm:text-sm md:text-base">Secure your access and review guidelines.</p>
                              </div>
                         </div>
                     </div>
 
                     <!-- Task 1.1 -->
-                    <div class="mb-12 border-t-2 border-deepBlack pt-8">
-                        <div class="flex flex-col md:flex-row md:items-baseline mb-4 md:mb-6">
-                            <h3 class="text-xl md:text-2xl font-black text-deepBlack mr-4 mb-1 md:mb-0">TASK 1.1</h3>
-                            <h4 class="text-lg md:text-xl font-bold text-gray-500">Portal Access & Security</h4>
+                    <div class="mb-10 md:mb-12 border-t-2 border-deepBlack pt-6 md:pt-8">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline mb-3 md:mb-6">
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-black text-deepBlack mr-0 sm:mr-4 mb-1 sm:mb-0">TASK 1.1</h3>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold text-gray-500">Portal Access & Security</h4>
                         </div>
-                        <p class="text-deepBlack mb-6 text-base md:text-lg font-light">Log into your administrator account for the first time and secure your login.</p>
+                        <p class="text-deepBlack mb-4 md:mb-6 text-sm sm:text-base md:text-lg font-light">Log into your administrator account for the first time and secure your login.</p>
                         
-                        <div class="border-y-2 border-gray-200 py-4 mb-8">
-                            <div class="grid grid-cols-1 gap-4 text-sm">
-                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Portal Link</span> <a href="https://portal.profuelcard.com/sign-in" target="_blank" class="text-primaryRed font-bold hover:underline break-all">portal.profuelcard.com/sign-in</a></div>
+                        <div class="border-y-2 border-gray-200 py-3 md:py-4 mb-6 md:mb-8">
+                            <div class="grid grid-cols-1 gap-3 md:gap-4 text-xs sm:text-sm">
+                                <div><span class="font-bold block uppercase text-[10px] sm:text-xs text-gray-500 mb-1">Portal Link</span> <a href="https://portal.profuelcard.com/sign-in" target="_blank" class="text-primaryRed font-bold hover:underline break-words-all">portal.profuelcard.com/sign-in</a></div>
                             </div>
                         </div>
 
-                        <div class="space-y-4" id="checklist-1-1"></div>
+                        <div class="space-y-3 md:space-y-4" id="checklist-1-1"></div>
                     </div>
 
                     <!-- Task 1.2 -->
-                    <div class="mb-12 border-t-2 border-deepBlack pt-8">
-                        <div class="flex flex-col md:flex-row md:items-baseline mb-4 md:mb-6">
-                            <h3 class="text-xl md:text-2xl font-black text-deepBlack mr-4 mb-1 md:mb-0">TASK 1.2</h3>
-                            <h4 class="text-lg md:text-xl font-bold text-gray-500">Overview & Reference Guides</h4>
+                    <div class="mb-10 md:mb-12 border-t-2 border-deepBlack pt-6 md:pt-8">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline mb-3 md:mb-6">
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-black text-deepBlack mr-0 sm:mr-4 mb-1 sm:mb-0">TASK 1.2</h3>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold text-gray-500">Overview & Reference Guides</h4>
                         </div>
-                        <p class="text-deepBlack mb-6 text-base md:text-lg font-light">Watch the quick video tutorial inside the portal to understand the main sections (Dashboard, Finance, Reports, Support, and Manage).</p>
+                        <p class="text-deepBlack mb-4 md:mb-6 text-sm sm:text-base md:text-lg font-light">Watch the quick video tutorial inside the portal to understand the main sections (Dashboard, Finance, Reports, Support, and Manage).</p>
                         
-                        <div class="flex flex-wrap gap-4 mb-8">
-                            <a href="https://www.youtube.com/watch?v=hZF8uJMS9Ec" target="_blank" class="inline-flex items-center px-6 py-3 border-2 border-deepBlack font-bold text-deepBlack bg-white hover:bg-deepBlack hover:text-white transition uppercase text-xs tracking-wider">
+                        <div class="flex flex-wrap gap-3 md:gap-4 mb-6 md:mb-8">
+                            <a href="https://www.youtube.com/watch?v=hZF8uJMS9Ec" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-4 sm:px-6 py-3 border-2 border-deepBlack font-bold text-deepBlack bg-white hover:bg-deepBlack hover:text-white transition uppercase text-xs tracking-wider">
                                 <i class="fa-brands fa-youtube mr-2 text-primaryRed text-lg"></i> Video Tutorial
                             </a>
                         </div>
 
-                        <div class="space-y-4" id="checklist-1-2"></div>
+                        <div class="space-y-3 md:space-y-4" id="checklist-1-2"></div>
                     </div>
                 </section>
 
-                <!-- STAGE 2 -->
                 <section id="stage-2" class="scroll-mt-32">
-                    <div class="bg-deepBlack text-white p-6 md:p-8 mb-8 md:mb-12 flex flex-col items-start shadow-lg border-l-8 border-primaryRed overflow-hidden relative">
-                        <div class="text-primaryRed font-bold tracking-widest uppercase text-xs mb-2 block relative z-10 w-full text-left">SECTION</div>
-                        <div class="flex flex-col md:flex-row md:items-center w-full mt-2">
-                             <div class="text-primaryRed text-6xl md:text-8xl font-black mb-2 md:mb-0 md:mr-8 leading-none relative z-10 order-first">02</div>
+                    <div class="bg-deepBlack text-white p-5 sm:p-6 md:p-8 mb-6 md:mb-12 flex flex-col items-start shadow-lg border-l-4 sm:border-l-8 border-primaryRed overflow-hidden relative w-full">
+                        <div class="text-primaryRed font-bold tracking-widest uppercase text-[10px] sm:text-xs mb-2 block relative z-10 w-full text-left">SECTION</div>
+                        <div class="flex flex-col md:flex-row md:items-center w-full mt-1 sm:mt-2">
+                             <div class="text-primaryRed text-5xl sm:text-6xl md:text-8xl font-black mb-2 md:mb-0 md:mr-8 leading-none relative z-10 order-first">02</div>
                              <div class="w-full relative z-10">
-                                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold break-words">Driver Setup</h2>
-                                 <p class="text-gray-400 mt-2 font-light text-sm sm:text-base">Set up fleet structure.</p>
+                                 <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold break-words">Driver Setup</h2>
+                                 <p class="text-gray-400 mt-1 sm:mt-2 font-light text-xs sm:text-sm md:text-base">Set up fleet structure.</p>
                              </div>
                         </div>
                     </div>
 
                     <!-- Task 2.1 -->
-                    <div class="mb-12 border-t-2 border-deepBlack pt-8">
-                        <div class="flex flex-col md:flex-row md:items-baseline mb-4 md:mb-6">
-                            <h3 class="text-xl md:text-2xl font-black text-deepBlack mr-4 mb-1 md:mb-0">TASK 2.1</h3>
-                            <h4 class="text-lg md:text-xl font-bold text-gray-500">Create Card Groups & Add Drivers</h4>
+                    <div class="mb-10 md:mb-12 border-t-2 border-deepBlack pt-6 md:pt-8">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline mb-3 md:mb-6">
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-black text-deepBlack mr-0 sm:mr-4 mb-1 sm:mb-0">TASK 2.1</h3>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold text-gray-500">Create Card Groups & Add Drivers</h4>
                         </div>
-                        <p class="text-deepBlack mb-6 text-base md:text-lg font-light">Set up your fleet structure in the PFC Portal under the <strong>Manage</strong> tab as shown in the video tutorial.</p>
+                        <p class="text-deepBlack mb-4 md:mb-6 text-sm sm:text-base md:text-lg font-light">Set up your fleet structure in the PFC Portal under the <strong>Manage</strong> tab as shown in the video tutorial.</p>
                         
-                        <div class="space-y-4" id="checklist-2-1"></div>
+                        <div class="space-y-3 md:space-y-4" id="checklist-2-1"></div>
                     </div>
                 </section>
 
-                <!-- STAGE 3 -->
                 <section id="stage-3" class="scroll-mt-32">
-                    <div class="bg-deepBlack text-white p-6 md:p-8 mb-8 md:mb-12 flex flex-col items-start shadow-lg border-l-8 border-primaryRed overflow-hidden relative">
-                        <div class="text-primaryRed font-bold tracking-widest uppercase text-xs mb-2 block relative z-10 w-full text-left">SECTION</div>
-                        <div class="flex flex-col md:flex-row md:items-center w-full mt-2">
-                             <div class="text-primaryRed text-6xl md:text-8xl font-black mb-2 md:mb-0 md:mr-8 leading-none relative z-10 order-first">03</div>
+                    <div class="bg-deepBlack text-white p-5 sm:p-6 md:p-8 mb-6 md:mb-12 flex flex-col items-start shadow-lg border-l-4 sm:border-l-8 border-primaryRed overflow-hidden relative w-full">
+                        <div class="text-primaryRed font-bold tracking-widest uppercase text-[10px] sm:text-xs mb-2 block relative z-10 w-full text-left">SECTION</div>
+                        <div class="flex flex-col md:flex-row md:items-center w-full mt-1 sm:mt-2">
+                             <div class="text-primaryRed text-5xl sm:text-6xl md:text-8xl font-black mb-2 md:mb-0 md:mr-8 leading-none relative z-10 order-first">03</div>
                              <div class="w-full relative z-10">
-                                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold break-words">App Distribution</h2>
-                                 <p class="text-gray-400 mt-2 font-light text-sm sm:text-base">Equip drivers with the RouteOne GO app.</p>
+                                 <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold break-words">App Distribution</h2>
+                                 <p class="text-gray-400 mt-1 sm:mt-2 font-light text-xs sm:text-sm md:text-base">Equip drivers with the RouteOne GO app.</p>
                              </div>
                         </div>
                     </div>
 
                     <!-- Task 3.1 -->
-                    <div class="mb-12 border-t-2 border-deepBlack pt-8">
-                        <div class="flex flex-col md:flex-row md:items-baseline mb-4 md:mb-6">
-                            <h3 class="text-xl md:text-2xl font-black text-deepBlack mr-4 mb-1 md:mb-0 whitespace-nowrap">TASK 3.1</h3>
-                            <h4 class="text-lg md:text-xl font-bold text-gray-500 break-words">Access administration portal RouteOne GO App</h4>
+                    <div class="mb-10 md:mb-12 border-t-2 border-deepBlack pt-6 md:pt-8">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline mb-3 md:mb-6">
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-black text-deepBlack mr-0 sm:mr-4 mb-1 sm:mb-0 whitespace-nowrap">TASK 3.1</h3>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold text-gray-500 break-words">Access administration portal RouteOne GO App</h4>
                         </div>
-                        <p class="text-deepBlack text-base md:text-lg font-light mb-6">You have to access our administration portal, R1GO, at the following link:</p>
+                        <p class="text-deepBlack text-sm sm:text-base md:text-lg font-light mb-4 md:mb-6">You have to access our administration portal, R1GO, at the following link:</p>
                         
-                        <div class="border-y-2 border-gray-200 py-4 mb-6">
-                            <div class="grid grid-cols-1 gap-4 text-sm">
-                                <div>
-                                    <span class="font-bold block uppercase text-xs text-gray-500 mb-1">R1GO Portal Link</span> 
-                                    <a href="https://client.routeoneeld.com" target="_blank" class="text-primaryRed font-bold hover:underline bg-alertPink p-1 inline-block break-all">https://client.routeoneeld.com</a>
+                        <div class="border-y-2 border-gray-200 py-3 md:py-4 mb-4 md:mb-6">
+                            <div class="grid grid-cols-1 gap-3 md:gap-4 text-xs sm:text-sm">
+                                <div class="w-full overflow-hidden">
+                                    <span class="font-bold block uppercase text-[10px] sm:text-xs text-gray-500 mb-1">R1GO Portal Link</span> 
+                                    <a href="https://client.routeoneeld.com" target="_blank" class="text-primaryRed font-bold hover:underline bg-alertPink p-1 inline-block break-words-all w-auto max-w-full">https://client.routeoneeld.com</a>
                                 </div>
                             </div>
                         </div>
-                        <p class="text-deepBlack text-base md:text-lg font-light mb-6">Within the portal, you will be able to complete your account setup and create user profiles to enable driver access to the R1GO application. This service is provided to you free of charge.</p>
+                        <p class="text-deepBlack text-sm sm:text-base md:text-lg font-light mb-4 md:mb-6">Within the portal, you will be able to complete your account setup and create user profiles to enable driver access to the R1GO application. This service is provided to you free of charge.</p>
 
-                        <div class="space-y-4" id="checklist-3-1"></div>
+                        <div class="space-y-3 md:space-y-4" id="checklist-3-1"></div>
                     </div>
 
                     <!-- Task 3.2 -->
-                    <div class="mb-12 border-t-2 border-deepBlack pt-8">
-                        <div class="flex flex-col md:flex-row md:items-baseline mb-4 md:mb-6">
-                            <h3 class="text-xl md:text-2xl font-black text-deepBlack mr-4 mb-1 md:mb-0 whitespace-nowrap">TASK 3.2</h3>
-                            <h4 class="text-lg md:text-xl font-bold text-gray-500 break-words">Send RouteOne GO App Access to Drivers</h4>
+                    <div class="mb-10 md:mb-12 border-t-2 border-deepBlack pt-6 md:pt-8">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline mb-3 md:mb-6">
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-black text-deepBlack mr-0 sm:mr-4 mb-1 sm:mb-0 whitespace-nowrap">TASK 3.2</h3>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold text-gray-500 break-words">Send RouteOne GO App Access to Drivers</h4>
                         </div>
-                        <p class="text-deepBlack mb-6 text-base md:text-lg font-light">Provide all drivers with app download links, discount activation code, and instructions and their individual credentials you created.</p>
+                        <p class="text-deepBlack mb-4 md:mb-6 text-sm sm:text-base md:text-lg font-light">Provide all drivers with app download links, discount activation code, and instructions and their individual credentials you created.</p>
                         
-                        <div class="border-y-2 border-gray-200 py-4 mb-8">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div class="border-y-2 border-gray-200 py-3 md:py-4 mb-6 md:mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs sm:text-sm">
                                 <div>
-                                    <span class="font-bold block uppercase text-xs text-gray-500 mb-1">Discount Activation Code</span> 
-                                    <span class="text-deepBlack font-black text-lg bg-gray-100 p-1 border-2 border-deepBlack inline-block tracking-widest break-all">diesel8k</span>
+                                    <span class="font-bold block uppercase text-[10px] sm:text-xs text-gray-500 mb-1">Discount Activation Code</span> 
+                                    <span class="text-deepBlack font-black text-base sm:text-lg bg-gray-100 p-1 border-2 border-deepBlack inline-block tracking-widest break-words-all">diesel8k</span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="flex flex-col sm:flex-row flex-wrap gap-4 mb-8">
-                            <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border-2 border-deepBlack font-bold text-deepBlack bg-white hover:bg-deepBlack hover:text-white transition uppercase text-xs tracking-wider text-center">
+                        <div class="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 mb-6 md:mb-8">
+                            <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-4 sm:px-6 py-3 border-2 border-deepBlack font-bold text-deepBlack bg-white hover:bg-deepBlack hover:text-white transition uppercase text-xs tracking-wider text-center">
                                 🤖 Android App
                             </a>
-                            <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border-2 border-deepBlack font-bold text-deepBlack bg-white hover:bg-deepBlack hover:text-white transition uppercase text-xs tracking-wider text-center">
+                            <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-4 sm:px-6 py-3 border-2 border-deepBlack font-bold text-deepBlack bg-white hover:bg-deepBlack hover:text-white transition uppercase text-xs tracking-wider text-center">
                                 🍏 iPhone App
                             </a>
                         </div>
 
-                        <div class="space-y-4" id="checklist-3-2"></div>
+                        <div class="space-y-3 md:space-y-4" id="checklist-3-2"></div>
                         
                         <!-- Communication Templates -->
-                        <div class="mt-12">
-                            <h4 class="font-black text-deepBlack uppercase tracking-widest text-sm mb-6 border-b-2 border-deepBlack pb-2">Communication Templates</h4>
+                        <div class="mt-8 md:mt-12">
+                            <h4 class="font-black text-deepBlack uppercase tracking-widest text-xs sm:text-sm mb-4 md:mb-6 border-b-2 border-deepBlack pb-2">Communication Templates</h4>
 
                             <!-- SMS Template -->
-                            <div class="mb-8 relative border-2 border-deepBlack bg-white p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] w-full flex flex-col">
-                                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 border-b border-gray-200 pb-4">
-                                    <span class="text-sm font-bold uppercase text-deepBlack mb-2 sm:mb-0">Option 1: SMS / Text Message</span>
-                                    <button onclick="copyToClipboard('sms-template', this)" class="bg-deepBlack text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primaryRed transition w-full sm:w-auto">
+                            <div class="mb-6 md:mb-8 relative border-2 border-deepBlack bg-white p-3 sm:p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] w-full flex flex-col overflow-hidden">
+                                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 md:mb-4 border-b border-gray-200 pb-3 md:pb-4 gap-2">
+                                    <span class="text-xs sm:text-sm font-bold uppercase text-deepBlack">Option 1: SMS / Text Message</span>
+                                    <button onclick="copyToClipboard('sms-template', this)" class="bg-deepBlack text-white px-3 sm:px-4 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider hover:bg-primaryRed transition w-full sm:w-auto">
                                         Copy Text
                                     </button>
                                 </div>
-                                <p class="text-xs text-gray-500 mb-4 italic break-words">Best for quick group texts or WhatsApp messages.</p>
+                                <p class="text-[10px] sm:text-xs text-gray-500 mb-3 md:mb-4 italic break-words">Best for quick group texts or WhatsApp messages.</p>
                                 
                                 <textarea id="sms-raw-text" class="sr-only" aria-hidden="true">Hi team, it's [Owner Name]. We are switching to a new fuel card system to get better discounts. Please do this today:
 
@@ -305,210 +316,209 @@ Read the RouteOne Go User Guide here: https://drive.google.com/file/d/1HDr8V5Kpv
 
 If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let me know when you have the app downloaded!</textarea>
 
-                                <div class="font-sans text-sm text-gray-800 leading-relaxed overflow-hidden w-full flex-grow flex flex-col" id="sms-template">
-                                    <p class="mb-4 break-words whitespace-pre-wrap">Hi team, it's [Owner Name]. We are switching to a new fuel card system to get better discounts. Please do this today:</p>
+                                <div class="font-sans text-xs sm:text-sm text-gray-800 leading-relaxed w-full flex-grow flex flex-col" id="sms-template">
+                                    <p class="mb-3 md:mb-4 break-words whitespace-pre-wrap">Hi team, it's [Owner Name]. We are switching to a new fuel card system to get better discounts. Please do this today:</p>
                                     
                                     <p class="font-bold mb-1 break-words">1. Download the RouteOne GO app:</p>
-                                    <ul class="list-disc pl-5 mb-4 space-y-1 break-words overflow-wrap-anywhere">
+                                    <ul class="list-disc pl-4 sm:pl-5 mb-3 md:mb-4 space-y-1 break-words overflow-wrap-anywhere">
                                         <li>Android: <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" class="text-primaryRed">https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en</a></li>
                                         <li>iPhone: <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" class="text-primaryRed">https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004</a></li>
                                     </ul>
                                     
-                                    <p class="font-bold mb-4 break-words">2. Sign up and use our Promo Code: <span class="bg-gray-200 px-1 break-words">diesel8k</span>.</p>
+                                    <p class="font-bold mb-3 md:mb-4 break-words">2. Sign up and use our Promo Code: <span class="bg-gray-200 px-1 break-words">diesel8k</span>.</p>
                                     
                                     <p class="font-bold mb-1 break-words">3. TO GET FUEL:</p>
-                                    <p class="mb-4 break-words">You need a new PIN every time you pump. Open the app &gt; go to Cards &gt; select your card &gt; tap "Get PIN".</p>
+                                    <p class="mb-3 md:mb-4 break-words">You need a new PIN every time you pump. Open the app &gt; go to Cards &gt; select your card &gt; tap "Get PIN".</p>
                                     
-                                    <p class="mb-4 break-words">Read the RouteOne Go User Guide here:<br><a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" class="text-primaryRed break-all overflow-wrap-anywhere">https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing</a></p>
+                                    <p class="mb-3 md:mb-4 break-words">Read the RouteOne Go User Guide here:<br><a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" class="text-primaryRed break-words-all overflow-wrap-anywhere inline-block w-full">https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing</a></p>
                                     
-                                    <p class="break-words">If you get stuck at the pump, call support immediately: <span class="font-bold break-words">+1 (844) 244-3919</span>. Let me know when you have the app downloaded!</p>
+                                    <p class="break-words">If you get stuck at the pump, call support immediately: <span class="font-bold break-words whitespace-nowrap">+1 (844) 244-3919</span>. Let me know when you have the app downloaded!</p>
                                 </div>
                             </div>
 
                             <!-- Email Template -->
-                            <div class="relative border-2 border-deepBlack bg-white p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] w-full flex flex-col">
-                                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 border-b border-gray-200 pb-4">
-                                    <span class="text-sm font-bold uppercase text-deepBlack mb-2 sm:mb-0">Option 2: Email Template</span>
-                                    <button onclick="copyHtmlToClipboard('email-template', this)" class="bg-deepBlack text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-primaryRed transition w-full sm:w-auto">
+                            <div class="relative border-2 border-deepBlack bg-white p-3 sm:p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] w-full flex flex-col overflow-hidden">
+                                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 md:mb-4 border-b border-gray-200 pb-3 md:pb-4 gap-2">
+                                    <span class="text-xs sm:text-sm font-bold uppercase text-deepBlack">Option 2: Email Template</span>
+                                    <button onclick="copyHtmlToClipboard('email-template', this)" class="bg-deepBlack text-white px-3 sm:px-4 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider hover:bg-primaryRed transition w-full sm:w-auto">
                                         Copy Rich Text
                                     </button>
                                 </div>
-                                <p class="text-xs text-gray-500 mb-4 italic break-words">Best if the owner prefers email. This copies with bolding and clickable links intact.</p>
+                                <p class="text-[10px] sm:text-xs text-gray-500 mb-3 md:mb-4 italic break-words">Best if the owner prefers email. This copies with bolding and clickable links intact.</p>
                                 
-                                <div class="font-sans text-sm text-gray-800 leading-relaxed overflow-hidden w-full flex-grow flex flex-col" id="email-template">
-                                    <p class="font-bold mb-4 break-words">Subject: Action Required: New Fuel Cards &amp; App Setup Instructions</p>
+                                <div class="font-sans text-xs sm:text-sm text-gray-800 leading-relaxed w-full flex-grow flex flex-col" id="email-template">
+                                    <p class="font-bold mb-3 md:mb-4 break-words">Subject: Action Required: New Fuel Cards &amp; App Setup Instructions</p>
                                     
-                                    <p class="mb-4 break-words">Hi Team,</p>
+                                    <p class="mb-3 md:mb-4 break-words">Hi Team,</p>
                                     
-                                    <p class="mb-4 break-words">We are rolling out our new Pro Fuel Cards (PFC). To use your new card at the pump, you must download the companion mobile app. Please complete these steps before your next trip:</p>
+                                    <p class="mb-3 md:mb-4 break-words">We are rolling out our new Pro Fuel Cards (PFC). To use your new card at the pump, you must download the companion mobile app. Please complete these steps before your next trip:</p>
                                     
                                     <p class="font-bold mb-1 break-words">1. Download the RouteOne GO app</p>
-                                    <ul class="list-disc pl-5 mb-4 space-y-1 break-words overflow-wrap-anywhere">
+                                    <ul class="list-disc pl-4 sm:pl-5 mb-3 md:mb-4 space-y-1 break-words overflow-wrap-anywhere">
                                         <li>Android: <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" class="text-primaryRed">https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en</a></li>
                                         <li>iPhone: <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" class="text-primaryRed">https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004</a></li>
                                     </ul>
                                     
                                     <p class="font-bold mb-1 break-words">2. Activate your account</p>
-                                    <p class="mb-4 break-words">Sign up and enter Promo Code: <strong>diesel8k</strong>.</p>
+                                    <p class="mb-3 md:mb-4 break-words">Sign up and enter Promo Code: <strong>diesel8k</strong>.</p>
                                     
                                     <p class="font-bold mb-1 break-words">3. How to get your Fuel PIN (Important)</p>
                                     <p class="mb-2 break-words">For security, your PIN changes every time you fuel up.</p>
-                                    <ul class="list-disc pl-5 mb-4 space-y-1 break-words">
+                                    <ul class="list-disc pl-4 sm:pl-5 mb-3 md:mb-4 space-y-1 break-words">
                                         <li>Open the app</li>
                                         <li>Go to the <strong>Cards</strong> tab</li>
                                         <li>Select your discount card</li>
                                         <li>Tap <strong>Get PIN</strong> to generate your code for the pump.</li>
                                     </ul>
                                     
-                                    <p class="mb-4 break-words">Read the RouteOne Go User Guide here: <a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" class="text-primaryRed break-all overflow-wrap-anywhere">https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing</a>. It shows you exactly how to get your PIN and how to find the truck stops with the best diesel discounts on your route.</p>
+                                    <p class="mb-3 md:mb-4 break-words">Read the RouteOne Go User Guide here: <a href="https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing" class="text-primaryRed break-words-all overflow-wrap-anywhere inline-block w-full">https://drive.google.com/file/d/1HDr8V5Kpv2FtwRBm_j-sdteYbexiqT1C/view?usp=sharing</a>. It shows you exactly how to get your PIN and how to find the truck stops with the best diesel discounts on your route.</p>
                                     
                                     <p class="font-bold mb-1 break-words">Need Help at the Pump?</p>
-                                    <p class="mb-4 break-words">If your card is ever declined or the PIN isn't working, call PFC Support directly at <strong>+1 (844) 244-3919</strong> or email support@pfcllc.me.</p>
+                                    <p class="mb-3 md:mb-4 break-words">If your card is ever declined or the PIN isn't working, call PFC Support directly at <strong class="whitespace-nowrap">+1 (844) 244-3919</strong> or email <span class="break-words-all">support@pfcllc.me</span>.</p>
                                     
-                                    <p class="mb-4 break-words">Please reply to this email once you have the app installed and ready to go.</p>
+                                    <p class="mb-3 md:mb-4 break-words">Please reply to this email once you have the app installed and ready to go.</p>
                                     
                                     <p class="break-words">Best,<br>[Owner Name]</p>
                                 </div>
                             </div>
                             
                             <!-- Driver Instruction Download Button -->
-                            <div class="mt-12 text-center border-t-2 border-deepBlack pt-8 w-full flex flex-col items-center">
-                                <h4 class="font-black text-xl md:text-2xl mb-4 break-words text-center">Prefer a printable guide for your drivers?</h4>
-                                <a href="https://drive.google.com/file/d/1bLX--NUhoeCeCvrXmzz958eIAo_S8kGY/view?usp=sharing" target="_blank" class="flex flex-col sm:flex-row items-center justify-center px-6 md:px-8 py-4 bg-primaryRed text-white font-black uppercase tracking-widest text-xs md:text-sm hover:bg-deepBlack transition shadow-[4px_4px_0px_0px_#0A0A0A] hover:shadow-none hover:translate-y-1 hover:translate-x-1 w-full max-w-sm sm:max-w-md mx-auto text-center">
-                                    <i class="fa-solid fa-download mb-2 sm:mb-0 sm:mr-3 text-lg md:text-xl"></i> Download Driver Instructions
+                            <div class="mt-8 md:mt-12 text-center border-t-2 border-deepBlack pt-6 md:pt-8 w-full flex flex-col items-center">
+                                <h4 class="font-black text-lg sm:text-xl md:text-2xl mb-3 md:mb-4 break-words text-center">Prefer a printable guide for your drivers?</h4>
+                                <a href="https://drive.google.com/file/d/1bLX--NUhoeCeCvrXmzz958eIAo_S8kGY/view?usp=sharing" target="_blank" class="flex flex-col sm:flex-row items-center justify-center px-4 sm:px-6 md:px-8 py-3 md:py-4 bg-primaryRed text-white font-black uppercase tracking-widest text-[10px] sm:text-xs md:text-sm hover:bg-deepBlack transition shadow-[4px_4px_0px_0px_#0A0A0A] hover:shadow-none hover:translate-y-1 hover:translate-x-1 w-full max-w-[280px] sm:max-w-sm md:max-w-md mx-auto text-center">
+                                    <i class="fa-solid fa-download mb-1 sm:mb-0 sm:mr-3 text-base md:text-xl"></i> Download Driver Instructions
                                 </a>
-                                <p class="text-xs text-gray-500 mt-4 max-w-md mx-auto break-words text-center">Click above to open a pre-formatted PDF guide you can save or print directly to hand to your drivers.</p>
+                                <p class="text-[10px] sm:text-xs text-gray-500 mt-3 md:mt-4 max-w-xs sm:max-w-md mx-auto break-words text-center">Click above to open a pre-formatted PDF guide you can save or print directly to hand to your drivers.</p>
                             </div>
 
                         </div>
                     </div>
 
                     <!-- Task 3.3 -->
-                    <div class="mb-12 border-t-2 border-deepBlack pt-8">
-                        <div class="flex flex-col md:flex-row md:items-baseline mb-4 md:mb-6">
-                            <h3 class="text-xl md:text-2xl font-black text-deepBlack mr-4 mb-1 md:mb-0 whitespace-nowrap">TASK 3.3</h3>
-                            <h4 class="text-lg md:text-xl font-bold text-gray-500 break-words">Brief Drivers on Dynamic PIN & Support</h4>
+                    <div class="mb-10 md:mb-12 border-t-2 border-deepBlack pt-6 md:pt-8">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline mb-3 md:mb-6">
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-black text-deepBlack mr-0 sm:mr-4 mb-1 sm:mb-0 whitespace-nowrap">TASK 3.3</h3>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold text-gray-500 break-words">Brief Drivers on Dynamic PIN & Support</h4>
                         </div>
-                        <p class="text-deepBlack mb-6 text-base md:text-lg font-light">Ensure drivers know how to retrieve their fuel PIN and reach support if stuck at a pump.</p>
+                        <p class="text-deepBlack mb-4 md:mb-6 text-sm sm:text-base md:text-lg font-light">Ensure drivers know how to retrieve their fuel PIN and reach support if stuck at a pump.</p>
                         
-                        <div class="border-y-2 border-gray-200 py-4 mb-8">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Dynamic PIN Instructions</span> Before filling up, drivers open the app, go to <strong>Cards</strong>, select their discount card, and tap <strong>Get PIN</strong>. The PIN is generated in real-time and expires after a short period.</div>
-                                <div><span class="font-bold block uppercase text-xs text-gray-500 mb-1">Direct Support Info</span> Phone: <strong>+1 (844) 244-3919</strong> <br> Email: <strong>support@pfcllc.me</strong></div>
+                        <div class="border-y-2 border-gray-200 py-3 md:py-4 mb-6 md:mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs sm:text-sm">
+                                <div><span class="font-bold block uppercase text-[10px] sm:text-xs text-gray-500 mb-1">Dynamic PIN Instructions</span> Before filling up, drivers open the app, go to <strong>Cards</strong>, select their discount card, and tap <strong>Get PIN</strong>. The PIN is generated in real-time and expires after a short period.</div>
+                                <div class="overflow-hidden"><span class="font-bold block uppercase text-[10px] sm:text-xs text-gray-500 mb-1">Direct Support Info</span> Phone: <strong class="whitespace-nowrap">+1 (844) 244-3919</strong> <br> Email: <strong class="break-words-all">support@pfcllc.me</strong></div>
                             </div>
                         </div>
 
-                        <div class="space-y-4" id="checklist-3-3"></div>
+                        <div class="space-y-3 md:space-y-4" id="checklist-3-3"></div>
                     </div>
                 </section>
 
-                <!-- STAGE 4 -->
                 <section id="stage-4" class="scroll-mt-32">
-                    <div class="bg-deepBlack text-white p-6 md:p-8 mb-8 md:mb-12 flex flex-col items-start shadow-lg border-l-8 border-primaryRed overflow-hidden relative">
-                        <div class="text-primaryRed font-bold tracking-widest uppercase text-xs mb-2 block relative z-10 w-full text-left">SECTION</div>
-                        <div class="flex flex-col md:flex-row md:items-center w-full mt-2">
-                             <div class="text-primaryRed text-6xl md:text-8xl font-black mb-2 md:mb-0 md:mr-8 leading-none relative z-10 order-first">04</div>
+                    <div class="bg-deepBlack text-white p-5 sm:p-6 md:p-8 mb-6 md:mb-12 flex flex-col items-start shadow-lg border-l-4 sm:border-l-8 border-primaryRed overflow-hidden relative w-full">
+                        <div class="text-primaryRed font-bold tracking-widest uppercase text-[10px] sm:text-xs mb-2 block relative z-10 w-full text-left">SECTION</div>
+                        <div class="flex flex-col md:flex-row md:items-center w-full mt-1 sm:mt-2">
+                             <div class="text-primaryRed text-5xl sm:text-6xl md:text-8xl font-black mb-2 md:mb-0 md:mr-8 leading-none relative z-10 order-first">04</div>
                              <div class="w-full relative z-10">
-                                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold break-words">Go-Live</h2>
-                                 <p class="text-gray-400 mt-2 font-light text-sm sm:text-base">Verify first fuel transaction.</p>
+                                 <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold break-words">Go-Live</h2>
+                                 <p class="text-gray-400 mt-1 sm:mt-2 font-light text-xs sm:text-sm md:text-base">Verify first fuel transaction.</p>
                              </div>
                         </div>
                     </div>
 
                     <!-- Task 4.1 -->
-                    <div class="mb-12 border-t-2 border-deepBlack pt-8">
-                        <div class="flex flex-col md:flex-row md:items-baseline mb-4 md:mb-6">
-                            <h3 class="text-xl md:text-2xl font-black text-deepBlack mr-4 mb-1 md:mb-0">TASK 4.1</h3>
-                            <h4 class="text-lg md:text-xl font-bold text-gray-500">First Fueling & Billing Review</h4>
+                    <div class="mb-10 md:mb-12 border-t-2 border-deepBlack pt-6 md:pt-8">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline mb-3 md:mb-6">
+                            <h3 class="text-lg sm:text-xl md:text-2xl font-black text-deepBlack mr-0 sm:mr-4 mb-1 sm:mb-0">TASK 4.1</h3>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold text-gray-500 break-words">First Fueling & Billing Review</h4>
                         </div>
-                        <p class="text-deepBlack mb-6 text-base md:text-lg font-light">Verify that the system is operating correctly on the road.</p>
+                        <p class="text-deepBlack mb-4 md:mb-6 text-sm sm:text-base md:text-lg font-light">Verify that the system is operating correctly on the road.</p>
 
-                        <div class="space-y-4" id="checklist-4-1"></div>
+                        <div class="space-y-3 md:space-y-4" id="checklist-4-1"></div>
                     </div>
                     
                     <!-- Completion Message -->
-                    <div id="completion-message" class="hidden mt-12 bg-deepBlack text-white border-4 border-successGreen p-8 text-center shadow-[8px_8px_0px_0px_#16A34A]">
-                        <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-successGreen text-white mb-6">
-                            <i class="fa-solid fa-check text-4xl md:text-5xl"></i>
+                    <div id="completion-message" class="hidden mt-8 md:mt-12 bg-deepBlack text-white border-4 border-successGreen p-6 md:p-8 text-center shadow-[4px_4px_0px_0px_#16A34A] md:shadow-[8px_8px_0px_0px_#16A34A]">
+                        <div class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-successGreen text-white mb-4 md:mb-6">
+                            <i class="fa-solid fa-check text-3xl sm:text-4xl md:text-5xl"></i>
                         </div>
-                        <h3 class="text-2xl md:text-3xl font-black uppercase tracking-widest mb-4">Onboarding Complete</h3>
-                        <p class="text-base md:text-lg font-light max-w-xl mx-auto">Your fleet is fully set up and ready to fuel. You can safely close this page or keep it for your records.</p>
+                        <h3 class="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-widest mb-3 md:mb-4">Onboarding Complete</h3>
+                        <p class="text-sm sm:text-base md:text-lg font-light max-w-xl mx-auto">Your fleet is fully set up and ready to fuel. You can safely close this page or keep it for your records.</p>
                     </div>
 
                 </section>
 
                 <!-- SUPPORT / CONTACT FOOTER -->
-                <section class="mt-16 md:mt-24 pt-8 md:pt-12 border-t-8 border-deepBlack">
-                    <div class="mb-8 md:mb-12">
-                        <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-2 uppercase">Need a hand?</h2>
-                        <h3 class="text-xl md:text-2xl text-primaryRed font-bold uppercase tracking-widest">Reach support</h3>
+                <section class="mt-12 sm:mt-16 md:mt-24 pt-6 sm:pt-8 md:pt-12 border-t-4 sm:border-t-8 border-deepBlack">
+                    <div class="mb-6 sm:mb-8 md:mb-12">
+                        <h2 class="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight mb-1 sm:mb-2 uppercase">Need a hand?</h2>
+                        <h3 class="text-lg sm:text-xl md:text-2xl text-primaryRed font-bold uppercase tracking-widest">Reach support</h3>
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                         
                         <!-- App Support -->
-                        <div class="border-2 border-deepBlack p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] bg-white flex flex-col">
-                            <h4 class="font-black text-lg md:text-xl mb-1">PFC App (Optional)</h4>
-                            <p class="text-xs md:text-sm text-gray-600 mb-4 border-b border-gray-200 pb-4">Download — <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" class="text-primaryRed hover:underline font-bold">Android</a> or <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" class="text-primaryRed hover:underline font-bold">iPhone</a>. Once logged in, view your balance, savings, card details, and transactions.</p>
+                        <div class="border-2 border-deepBlack p-3 sm:p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] bg-white flex flex-col overflow-hidden">
+                            <h4 class="font-black text-base sm:text-lg md:text-xl mb-1">PFC App (Optional)</h4>
+                            <p class="text-[10px] sm:text-xs md:text-sm text-gray-600 mb-3 sm:mb-4 border-b border-gray-200 pb-3 sm:pb-4 break-words">Download — <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" class="text-primaryRed hover:underline font-bold">Android</a> or <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" class="text-primaryRed hover:underline font-bold">iPhone</a>. Once logged in, view your balance, savings, card details, and transactions.</p>
                             
-                            <h4 class="font-black text-base md:text-lg mb-1 mt-2">PFC — App Support <span class="text-primaryRed font-normal">· 24/7/365</span></h4>
-                            <p class="text-xs md:text-sm text-deepBlack font-light leading-relaxed mb-4">Open the PFC app → tap "Support" → choose Email us, Call us, or Start Conversation. <br><span class="bg-gray-100 italic p-1 mt-1 inline-block border-l-2 border-primaryRed">Russian-speaking drivers should use the app to chat with support in Russian.</span></p>
+                            <h4 class="font-black text-sm sm:text-base md:text-lg mb-1 mt-1 sm:mt-2">PFC — App Support <span class="text-primaryRed font-normal">· 24/7/365</span></h4>
+                            <p class="text-[10px] sm:text-xs md:text-sm text-deepBlack font-light leading-relaxed mb-3 sm:mb-4 break-words">Open the PFC app → tap "Support" → choose Email us, Call us, or Start Conversation. <br><span class="bg-gray-100 italic p-1 mt-1 inline-block border-l-2 border-primaryRed w-full">Russian-speaking drivers should use the app to chat with support in Russian.</span></p>
                             
-                            <div class="mt-auto pt-4 border-t border-gray-200">
-                                <h4 class="font-black text-base md:text-lg mb-2">PFC Support Direct</h4>
-                                <div class="flex items-center text-lg md:text-xl font-black mb-1">
-                                    <i class="fa-solid fa-phone w-6 md:w-8 text-primaryRed"></i> +1 (844) 244-3919
+                            <div class="mt-auto pt-3 sm:pt-4 border-t border-gray-200">
+                                <h4 class="font-black text-sm sm:text-base md:text-lg mb-1 sm:mb-2">PFC Support Direct</h4>
+                                <div class="flex items-center text-base sm:text-lg md:text-xl font-black mb-1">
+                                    <i class="fa-solid fa-phone w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="whitespace-nowrap">+1 (844) 244-3919</span>
                                 </div>
-                                <div class="flex items-center text-base md:text-lg font-medium text-gray-700 break-all">
-                                    <i class="fa-solid fa-envelope w-6 md:w-8 text-primaryRed"></i> support@pfcllc.me
+                                <div class="flex items-center text-sm sm:text-base md:text-lg font-medium text-gray-700">
+                                    <i class="fa-solid fa-envelope w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="break-words-all">support@pfcllc.me</span>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Accounting Support -->
-                        <div class="border-2 border-deepBlack p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] bg-gray-50 flex flex-col">
-                            <h4 class="font-black text-lg md:text-xl mb-1">Full Tank Capital — Accounting</h4>
-                            <p class="text-xs md:text-sm text-gray-600 mb-6 uppercase tracking-wider font-bold border-b border-gray-200 pb-4">Billing, invoices, statements</p>
+                        <div class="border-2 border-deepBlack p-3 sm:p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] bg-gray-50 flex flex-col overflow-hidden">
+                            <h4 class="font-black text-base sm:text-lg md:text-xl mb-1">Full Tank Capital — Accounting</h4>
+                            <p class="text-[10px] sm:text-xs md:text-sm text-gray-600 mb-4 sm:mb-6 uppercase tracking-wider font-bold border-b border-gray-200 pb-3 sm:pb-4 break-words">Billing, invoices, statements</p>
                             
-                            <div class="mt-2">
-                                <div class="flex items-center text-xl md:text-2xl font-black mb-2">
-                                    <i class="fa-solid fa-phone w-6 md:w-8 text-primaryRed"></i> +1 (708) 855-8808
+                            <div class="mt-1 sm:mt-2">
+                                <div class="flex items-center text-lg sm:text-xl md:text-2xl font-black mb-1 sm:mb-2">
+                                    <i class="fa-solid fa-phone w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="whitespace-nowrap">+1 (708) 855-8808</span>
                                 </div>
-                                <div class="flex items-center text-base md:text-lg font-medium text-gray-700 mb-6 md:mb-8 break-all">
-                                    <i class="fa-solid fa-envelope w-6 md:w-8 text-primaryRed"></i> accounting@fulltank.us
+                                <div class="flex items-center text-sm sm:text-base md:text-lg font-medium text-gray-700 mb-4 sm:mb-6 md:mb-8">
+                                    <i class="fa-solid fa-envelope w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="break-words-all">accounting@fulltank.us</span>
                                 </div>
                             </div>
                             
-                            <div class="mt-auto inline-block bg-deepBlack text-white text-[10px] md:text-xs font-bold uppercase tracking-widest px-3 py-2 md:px-4 md:py-3 self-start break-words border-l-4 border-primaryRed">
+                            <div class="mt-auto inline-block bg-deepBlack text-white text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest px-2 sm:px-3 py-1.5 sm:py-2 md:px-4 md:py-3 self-start break-words border-l-2 sm:border-l-4 border-primaryRed">
                                 Mon–Fri, 8:00 AM – 5:00 PM CT
                             </div>
                         </div>
 
                         <!-- Sales & Referrals Support -->
-                        <div class="border-2 border-deepBlack p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] bg-white flex flex-col md:col-span-2 lg:col-span-1">
+                        <div class="border-2 border-deepBlack p-3 sm:p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] bg-white flex flex-col md:col-span-2 lg:col-span-1 overflow-hidden">
                             <div>
-                                <h4 class="font-black text-lg md:text-xl mb-1">Full Tank — Sales</h4>
-                                <p class="text-xs md:text-sm text-gray-600 mb-4 md:mb-6 uppercase tracking-wider font-bold border-b border-gray-200 pb-4">New accounts & Referrals</p>
+                                <h4 class="font-black text-base sm:text-lg md:text-xl mb-1">Full Tank — Sales</h4>
+                                <p class="text-[10px] sm:text-xs md:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-6 uppercase tracking-wider font-bold border-b border-gray-200 pb-3 sm:pb-4 break-words">New accounts & Referrals</p>
                                 
-                                <div class="bg-alertPink text-deepBlack p-3 md:p-4 mb-4 md:mb-6 border-2 border-primaryRed">
-                                    <span class="block font-black text-base md:text-lg mb-1 uppercase tracking-tight text-primaryRed"><i class="fa-solid fa-sack-dollar mr-2"></i> $150 Referral Bonus</span>
-                                    <span class="text-xs md:text-sm font-medium">Call or text us for your referrals to get $150 for each recommendation.</span>
+                                <div class="bg-alertPink text-deepBlack p-2 sm:p-3 md:p-4 mb-3 sm:mb-4 md:mb-6 border border-primaryRed">
+                                    <span class="block font-black text-sm sm:text-base md:text-lg mb-1 uppercase tracking-tight text-primaryRed"><i class="fa-solid fa-sack-dollar mr-1 sm:mr-2"></i> $150 Referral Bonus</span>
+                                    <span class="text-[10px] sm:text-xs md:text-sm font-medium break-words">Call or text us for your referrals to get $150 for each recommendation.</span>
                                 </div>
                                 
-                                <div class="mb-4 md:mb-6">
-                                    <p class="font-black text-base md:text-lg mb-2 uppercase tracking-tight">Dumitru <span class="text-gray-500 font-bold text-xs md:text-sm tracking-normal capitalize ml-1">| Sales Manager</span></p>
-                                    <div class="flex items-center text-xl md:text-2xl font-black mb-1 md:mb-2 mt-1 md:mt-2">
-                                        <i class="fa-solid fa-phone w-6 md:w-8 text-primaryRed"></i> (872) 871-5787
+                                <div class="mb-3 sm:mb-4 md:mb-6">
+                                    <p class="font-black text-sm sm:text-base md:text-lg mb-1 sm:mb-2 uppercase tracking-tight">Dumitru <span class="text-gray-500 font-bold text-[10px] sm:text-xs md:text-sm tracking-normal capitalize ml-1">| Sales Manager</span></p>
+                                    <div class="flex items-center text-lg sm:text-xl md:text-2xl font-black mb-1 sm:mb-2 mt-1 sm:mt-2">
+                                        <i class="fa-solid fa-phone w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="whitespace-nowrap">(872) 871-5787</span>
                                     </div>
-                                    <div class="flex items-center text-base md:text-lg font-medium text-gray-700 break-all">
-                                        <i class="fa-solid fa-envelope w-6 md:w-8 text-primaryRed"></i> dumitru@fulltank.us
+                                    <div class="flex items-center text-sm sm:text-base md:text-lg font-medium text-gray-700">
+                                        <i class="fa-solid fa-envelope w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="break-words-all">dumitru@fulltank.us</span>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="mt-auto pt-4 border-t-2 border-deepBlack flex items-center">
-                                <i class="fa-solid fa-globe w-6 md:w-8 text-primaryRed text-lg md:text-xl"></i>
-                                <a href="https://www.fulltank.us" target="_blank" class="font-black text-deepBlack hover:text-primaryRed transition uppercase tracking-widest text-sm sm:text-base break-all ml-1 md:ml-2">www.fulltank.us</a>
+                            <div class="mt-auto pt-3 sm:pt-4 border-t-2 border-deepBlack flex items-center">
+                                <i class="fa-solid fa-globe w-5 sm:w-6 md:w-8 text-primaryRed text-base sm:text-lg md:text-xl"></i>
+                                <a href="https://www.fulltank.us" target="_blank" class="font-black text-deepBlack hover:text-primaryRed transition uppercase tracking-widest text-xs sm:text-sm md:text-base break-words-all ml-1 sm:ml-2">www.fulltank.us</a>
                             </div>
                         </div>
                         
@@ -590,11 +600,11 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
                     const div = document.createElement('div');
                     div.className = `flex items-start checklist-item ${completedClass} p-2 sm:p-3 hover:bg-gray-50 transition`;
                     div.innerHTML = `
-                        <div class="flex items-center h-6 mt-0.5">
-                            <input id="${item.id}" type="checkbox" ${isChecked} onchange="toggleItem('${item.id}', this)" class="w-5 h-5 sm:w-6 sm:h-6">
+                        <div class="flex items-center h-5 sm:h-6 mt-0.5 sm:mt-1">
+                            <input id="${item.id}" type="checkbox" ${isChecked} onchange="toggleItem('${item.id}', this)" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6">
                         </div>
-                        <div class="ml-3 sm:ml-4 text-sm sm:text-base">
-                            <label for="${item.id}" class="font-medium text-deepBlack cursor-pointer select-none break-words inline-block w-full">${item.text}</label>
+                        <div class="ml-2 sm:ml-3 md:ml-4 text-xs sm:text-sm md:text-base w-full">
+                            <label for="${item.id}" class="font-medium text-deepBlack cursor-pointer select-none break-words inline-block w-full leading-snug sm:leading-normal">${item.text}</label>
                         </div>
                     `;
                     container.appendChild(div);

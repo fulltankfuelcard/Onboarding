@@ -75,15 +75,6 @@
         input[type=range]:focus {
             outline: none;
         }
-        
-        /* Hide iframe scrollbar but allow scrolling */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
     </style>
 </head>
 <body class="bg-white text-ft-black font-sans antialiased overflow-x-hidden">
@@ -403,18 +394,18 @@
                             </div>
                         </div>
 
-                        <!-- Weekly Gallons -->
+                        <!-- Monthly Gallons -->
                         <div>
                             <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end mb-4 gap-2">
-                                <label class="font-bold text-gray-700 text-sm sm:text-lg">Weekly Gallons Per Truck</label>
+                                <label class="font-bold text-gray-700 text-sm sm:text-lg">Monthly Gallons Per Truck</label>
                                 <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right w-full sm:w-auto">
                                     <span id="val-gallons">1000</span> <span class="text-sm sm:text-lg text-ft-red font-bold">gal</span>
                                 </div>
                             </div>
-                            <input type="range" id="input-gallons" min="200" max="3000" value="1000" step="50">
+                            <input type="range" id="input-gallons" min="100" max="1000" value="1000" step="50">
                             <div class="flex justify-between text-xs sm:text-sm text-gray-400 mt-2 font-semibold">
-                                <span>200 gal</span>
-                                <span>3,000 gal</span>
+                                <span>100 gal</span>
+                                <span>1,000 gal</span>
                             </div>
                         </div>
 
@@ -423,25 +414,26 @@
                             <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end mb-4 gap-2">
                                 <label class="font-bold text-gray-700 text-sm sm:text-lg">Average Price at the Pump</label>
                                 <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right w-full sm:w-auto">
-                                    <span class="text-sm sm:text-lg text-ft-red font-bold">$</span><span id="val-price">3.50</span><span class="text-sm sm:text-lg text-ft-red font-bold"> /gal</span>
+                                    <span class="text-sm sm:text-lg text-ft-red font-bold">$</span><span id="val-price">5.70</span><span class="text-sm sm:text-lg text-ft-red font-bold"> /gal</span>
                                 </div>
                             </div>
-                            <input type="range" id="input-price" min="2.00" max="7.00" value="3.50" step="0.05">
+                            <!-- Max set to $9.00 -->
+                            <input type="range" id="input-price" min="2.00" max="9.00" value="5.70" step="0.05">
                             <div class="flex justify-between text-xs sm:text-sm text-gray-400 mt-2 font-semibold">
                                 <span>$2.00</span>
-                                <span>$7.00</span>
+                                <span>$9.00</span>
                             </div>
                         </div>
 
                         <!-- Discount Cents -->
                         <div>
                             <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end mb-4 gap-2">
-                                <label class="font-bold text-gray-700 text-sm sm:text-lg">Expected Savings vs. Current Price</label>
+                                <label class="font-bold text-gray-700 text-sm sm:text-lg">Average difference between 2 fuel cards</label>
                                 <div class="text-2xl sm:text-4xl font-black text-ft-red bg-ft-pink px-3 sm:px-4 py-1 rounded-lg border border-red-100 text-right w-full sm:w-auto">
-                                    <span id="val-cents">21</span><span class="text-sm sm:text-lg text-ft-red font-bold">¢ /gal</span>
+                                    <span id="val-cents">3</span><span class="text-sm sm:text-lg text-ft-red font-bold">¢ /gal</span>
                                 </div>
                             </div>
-                            <input type="range" id="input-cents" min="1" max="100" value="21" step="1">
+                            <input type="range" id="input-cents" min="1" max="100" value="3" step="1">
                             <div class="flex justify-between text-xs sm:text-sm text-gray-400 mt-2 font-semibold">
                                 <span>1¢</span>
                                 <span>$1.00</span>
@@ -462,23 +454,23 @@
                                 <p class="text-gray-500 font-bold text-base sm:text-lg">Current Monthly Spend</p>
                                 <p class="text-xs sm:text-sm text-gray-400">Before Full Tank discounts</p>
                             </div>
-                            <p class="text-2xl sm:text-3xl font-black text-gray-400 line-through" id="out-spend-monthly">$15,166.67</p>
+                            <p class="text-2xl sm:text-3xl font-black text-gray-400 line-through" id="out-spend-monthly">$11,400.00</p>
                         </div>
 
                         <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center gap-2">
                             <p class="text-gray-500 font-bold text-sm sm:text-lg">Weekly Savings</p>
-                            <p class="text-xl sm:text-4xl font-black text-ft-black break-all text-right" id="out-weekly">$210.00</p>
+                            <p class="text-xl sm:text-4xl font-black text-ft-black break-all text-right" id="out-weekly">$13.85</p>
                         </div>
                         
                         <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm flex justify-between items-center gap-2">
                             <p class="text-gray-500 font-bold text-sm sm:text-lg">Monthly Savings</p>
-                            <p class="text-xl sm:text-4xl font-black text-ft-black break-all text-right" id="out-monthly">$910.00</p>
+                            <p class="text-xl sm:text-4xl font-black text-ft-black break-all text-right" id="out-monthly">$60.00</p>
                         </div>
                         
                         <!-- Transform scale disabled on small mobile screens to prevent overflow -->
                         <div class="bg-ft-black p-6 sm:p-8 rounded-2xl shadow-xl transform md:scale-105 border-b-4 border-ft-red">
                             <p class="text-gray-400 font-bold text-base sm:text-xl mb-1 sm:mb-2">Yearly Savings Forecast</p>
-                            <p class="text-4xl sm:text-6xl lg:text-7xl font-black text-ft-red mb-2 break-words" id="out-yearly">$10,920.00</p>
+                            <p class="text-4xl sm:text-6xl lg:text-7xl font-black text-ft-red mb-2 break-words" id="out-yearly">$720.00</p>
                             <p class="text-gray-400 italic text-xs sm:text-sm">That's money going straight back into your business for maintenance, tires, or truck payments.</p>
                         </div>
                     </div>
@@ -514,13 +506,15 @@
                 </div>
             </div>
 
-            <div class="bg-ft-black rounded-3xl p-2 shadow-2xl relative overflow-hidden border border-gray-800">
-                <!-- Iframe for fuel map -->
-                <div class="w-full h-[600px] bg-gray-900 rounded-2xl overflow-hidden relative z-10">
+            <!-- Responsive Iframe Container -->
+            <div class="bg-ft-black rounded-3xl p-2 shadow-2xl relative overflow-hidden border border-gray-800 w-full">
+                <!-- Adaptive heights based on breakpoint -->
+                <div class="w-full h-[400px] sm:h-[500px] md:h-[600px] bg-gray-900 rounded-2xl overflow-hidden relative z-10">
                     <iframe 
                         src="https://fulltank.us/fuel-stations" 
-                        class="w-full h-full border-0 no-scrollbar"
-                        title="Full Tank Fuel Map">
+                        class="w-full h-full border-0"
+                        title="Full Tank Fuel Map"
+                        style="min-height: 100%;">
                     </iframe>
                 </div>
             </div>
@@ -721,27 +715,30 @@
             // Calculate function
             function calculateSavings() {
                 const trucks = parseInt(inputTrucks.value);
-                const gallons = parseInt(inputGallons.value);
+                const monthlyGallons = parseInt(inputGallons.value);
                 const cents = parseInt(inputCents.value);
                 const price = parseFloat(inputPrice.value);
                 
                 // Update display values for range inputs
                 valTrucks.textContent = trucks;
-                valGallons.textContent = gallons.toLocaleString();
+                valGallons.textContent = monthlyGallons.toLocaleString();
                 valCents.textContent = cents;
                 valPrice.textContent = price.toFixed(2);
 
-                // Calculation logic
-                // Baseline spend
-                const weeklySpend = trucks * gallons * price;
-                const monthlySpend = (weeklySpend * 52) / 12;
-
-                // Weekly Savings = trucks * gallons per truck * (cents / 100)
-                const weeklySavings = trucks * gallons * (cents / 100);
+                // Calculation logic based on MONTHLY gallons
+                // Total monthly gallons
+                const totalMonthlyGallons = trucks * monthlyGallons;
                 
-                // standard industry calculation uses 52 weeks / 12 months for accuracy
-                const yearlySavings = weeklySavings * 52;
-                const monthlySavings = yearlySavings / 12;
+                // Baseline spend
+                const monthlySpend = totalMonthlyGallons * price;
+
+                // Savings Calculation
+                const savingsPerGallon = cents / 100;
+                const monthlySavings = totalMonthlyGallons * savingsPerGallon;
+                
+                // Conversions
+                const yearlySavings = monthlySavings * 12;
+                const weeklySavings = yearlySavings / 52;
 
                 // Update outputs
                 outSpendMonthly.textContent = currencyFormatter.format(monthlySpend);

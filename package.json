@@ -1,0 +1,23 @@
+{
+  "name": "fulltank-onboarding",
+  "version": "1.0.0",
+  "description": "Full Tank Fuel Card Onboarding Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fulltankfuelcard/Onboarding.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fulltankfuelcard/Onboarding/issues"
+  },
+  "homepage": "https://github.com/fulltankfuelcard/Onboarding#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}

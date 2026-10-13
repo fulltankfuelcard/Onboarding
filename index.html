@@ -49,7 +49,7 @@
             place-content: center;
             cursor: pointer;
             transition: all 0.1s ease-in-out;
-            flex-shrink: 0; /* Prevent checkbox from shrinking on small screens */
+            flex-shrink: 0; 
         }
 
         .checklist-item input[type="checkbox"]::before {
@@ -86,16 +86,14 @@
             transition: width 0.3s ease;
         }
         
-        /* Adjusted massive text to break better on very small screens */
         .text-massive {
             font-size: clamp(4rem, 15vw, 12rem);
             line-height: 0.8;
             font-weight: 900;
             letter-spacing: -0.05em;
-            word-break: break-word; /* Ensure it doesn't cause horizontal scroll */
+            word-break: break-word; 
         }
 
-        /* Utility to force breaks on long URLs/emails */
         .break-words-all {
             word-break: break-all;
         }
@@ -130,7 +128,6 @@
             <div class="w-full md:w-2/3 md:pl-12">
                 <h4 class="text-primaryRed font-bold tracking-widest uppercase text-xs md:text-sm mb-3 md:mb-4">ACTION PLAN</h4>
                 
-                <!-- Fixed Hero Title for Mobile Wrap -->
                 <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight mb-4 md:mb-6 leading-none break-words">
                     ONBOARDING <br class="hidden sm:block"> CHECKLIST
                 </h1>
@@ -461,71 +458,71 @@ If you get stuck at the pump, call support immediately: +1 (844) 244-3919. Let m
                         <h3 class="text-lg sm:text-xl md:text-2xl text-primaryRed font-bold uppercase tracking-widest">Reach support</h3>
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                         
-                        <!-- App Support -->
-                        <div class="border-2 border-deepBlack p-3 sm:p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] bg-white flex flex-col overflow-hidden">
-                            <h4 class="font-black text-base sm:text-lg md:text-xl mb-1">PFC App (Optional)</h4>
-                            <p class="text-[10px] sm:text-xs md:text-sm text-gray-600 mb-3 sm:mb-4 border-b border-gray-200 pb-3 sm:pb-4 break-words">Download — <a href="https://play.google.com/store/apps/details?id=com.datadrive.oneroute.app&hl=en" class="text-primaryRed hover:underline font-bold">Android</a> or <a href="https://apps.apple.com/md/app/routeone-go-truck-navigation/id6737020004" class="text-primaryRed hover:underline font-bold">iPhone</a>. Once logged in, view your balance, savings, card details, and transactions.</p>
+                        <!-- PFC Support Direct -->
+                        <div class="border-2 border-deepBlack p-3 sm:p-4 shadow-[4px_4px_0px_0px_#0A0A0A] bg-white flex flex-col overflow-hidden">
+                            <h4 class="font-black text-sm sm:text-base mb-1">PFC Support Direct</h4>
+                            <p class="text-[9px] sm:text-[10px] text-gray-600 mb-3 sm:mb-4 uppercase tracking-wider font-bold border-b border-gray-200 pb-2 sm:pb-3 break-words">General Support & Assistance</p>
                             
-                            <h4 class="font-black text-sm sm:text-base md:text-lg mb-1 mt-1 sm:mt-2">PFC — App Support <span class="text-primaryRed font-normal">· 24/7/365</span></h4>
-                            <p class="text-[10px] sm:text-xs md:text-sm text-deepBlack font-light leading-relaxed mb-3 sm:mb-4 break-words">Open the PFC app → tap "Support" → choose Email us, Call us, or Start Conversation. <br><span class="bg-gray-100 italic p-1 mt-1 inline-block border-l-2 border-primaryRed w-full">Russian-speaking drivers should use the app to chat with support in Russian.</span></p>
-                            
-                            <div class="mt-auto pt-3 sm:pt-4 border-t border-gray-200">
-                                <h4 class="font-black text-sm sm:text-base md:text-lg mb-1 sm:mb-2">PFC Support Direct</h4>
-                                <div class="flex items-center text-base sm:text-lg md:text-xl font-black mb-1">
-                                    <i class="fa-solid fa-phone w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="whitespace-nowrap">+1 (844) 244-3919</span>
+                            <div class="mt-1 sm:mt-2">
+                                <div class="flex items-center text-base sm:text-lg font-black mb-1">
+                                    <i class="fa-solid fa-phone w-4 sm:w-5 text-primaryRed"></i> <span class="whitespace-nowrap">+1 (844) 244-3919</span>
                                 </div>
-                                <div class="flex items-center text-sm sm:text-base md:text-lg font-medium text-gray-700">
-                                    <i class="fa-solid fa-envelope w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="break-words-all">support@pfcllc.me</span>
+                                <div class="flex items-center text-xs sm:text-sm font-medium text-gray-700">
+                                    <i class="fa-solid fa-envelope w-4 sm:w-5 text-primaryRed"></i> <span class="break-words-all">support@pfcllc.me</span>
                                 </div>
+                            </div>
+
+                            <div class="mt-auto inline-block bg-deepBlack text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-2 sm:px-3 py-1.5 sm:py-2 self-start break-words border-l-2 sm:border-l-4 border-primaryRed mt-6">
+                                24 / 7 / 365
                             </div>
                         </div>
                         
                         <!-- Accounting Support -->
-                        <div class="border-2 border-deepBlack p-3 sm:p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] bg-gray-50 flex flex-col overflow-hidden">
-                            <h4 class="font-black text-base sm:text-lg md:text-xl mb-1">Full Tank Capital — Accounting</h4>
-                            <p class="text-[10px] sm:text-xs md:text-sm text-gray-600 mb-4 sm:mb-6 uppercase tracking-wider font-bold border-b border-gray-200 pb-3 sm:pb-4 break-words">Billing, invoices, statements</p>
+                        <div class="border-2 border-deepBlack p-3 sm:p-4 shadow-[4px_4px_0px_0px_#0A0A0A] bg-gray-50 flex flex-col overflow-hidden">
+                            <h4 class="font-black text-sm sm:text-base mb-1">Full Tank Capital — Accounting</h4>
+                            <p class="text-[9px] sm:text-[10px] text-gray-600 mb-3 sm:mb-4 uppercase tracking-wider font-bold border-b border-gray-200 pb-2 sm:pb-3 break-words">Billing, invoices, statements</p>
                             
                             <div class="mt-1 sm:mt-2">
-                                <div class="flex items-center text-lg sm:text-xl md:text-2xl font-black mb-1 sm:mb-2">
-                                    <i class="fa-solid fa-phone w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="whitespace-nowrap">+1 (708) 855-8808</span>
+                                <div class="flex items-center text-base sm:text-lg font-black mb-1 sm:mb-2">
+                                    <i class="fa-solid fa-phone w-4 sm:w-5 text-primaryRed"></i> <span class="whitespace-nowrap">+1 (708) 855-8808</span>
                                 </div>
-                                <div class="flex items-center text-sm sm:text-base md:text-lg font-medium text-gray-700 mb-4 sm:mb-6 md:mb-8">
-                                    <i class="fa-solid fa-envelope w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="break-words-all">accounting@fulltank.us</span>
+                                <div class="flex items-center text-xs sm:text-sm font-medium text-gray-700 mb-4">
+                                    <i class="fa-solid fa-envelope w-4 sm:w-5 text-primaryRed"></i> <span class="break-words-all">accounting@fulltank.us</span>
                                 </div>
                             </div>
                             
-                            <div class="mt-auto inline-block bg-deepBlack text-white text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest px-2 sm:px-3 py-1.5 sm:py-2 md:px-4 md:py-3 self-start break-words border-l-2 sm:border-l-4 border-primaryRed">
+                            <div class="mt-auto inline-block bg-deepBlack text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-2 sm:px-3 py-1.5 sm:py-2 self-start break-words border-l-2 sm:border-l-4 border-primaryRed">
                                 Mon–Fri, 8:00 AM – 5:00 PM CT
                             </div>
                         </div>
 
                         <!-- Sales & Referrals Support -->
-                        <div class="border-2 border-deepBlack p-3 sm:p-4 md:p-6 shadow-[4px_4px_0px_0px_#0A0A0A] bg-white flex flex-col md:col-span-2 lg:col-span-1 overflow-hidden">
+                        <div class="border-2 border-deepBlack p-3 sm:p-4 shadow-[4px_4px_0px_0px_#0A0A0A] bg-white flex flex-col overflow-hidden">
                             <div>
-                                <h4 class="font-black text-base sm:text-lg md:text-xl mb-1">Full Tank — Sales</h4>
-                                <p class="text-[10px] sm:text-xs md:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-6 uppercase tracking-wider font-bold border-b border-gray-200 pb-3 sm:pb-4 break-words">New accounts & Referrals</p>
+                                <h4 class="font-black text-sm sm:text-base mb-1">Full Tank — Sales</h4>
+                                <p class="text-[9px] sm:text-[10px] text-gray-600 mb-2 sm:mb-3 uppercase tracking-wider font-bold border-b border-gray-200 pb-2 sm:pb-3 break-words">New accounts & Referrals</p>
                                 
-                                <div class="bg-alertPink text-deepBlack p-2 sm:p-3 md:p-4 mb-3 sm:mb-4 md:mb-6 border border-primaryRed">
-                                    <span class="block font-black text-sm sm:text-base md:text-lg mb-1 uppercase tracking-tight text-primaryRed"><i class="fa-solid fa-sack-dollar mr-1 sm:mr-2"></i> $150 Referral Bonus</span>
-                                    <span class="text-[10px] sm:text-xs md:text-sm font-medium break-words">Call or text us for your referrals to get $150 for each recommendation.</span>
+                                <div class="bg-alertPink text-deepBlack p-2 sm:p-3 mb-3 sm:mb-4 border border-primaryRed">
+                                    <span class="block font-black text-xs sm:text-sm mb-1 uppercase tracking-tight text-primaryRed"><i class="fa-solid fa-sack-dollar mr-1"></i> $150 Referral Bonus</span>
+                                    <span class="text-[9px] sm:text-[10px] font-medium break-words leading-snug">Call or text us for your referrals to get $150 for each recommendation.</span>
                                 </div>
                                 
-                                <div class="mb-3 sm:mb-4 md:mb-6">
-                                    <p class="font-black text-sm sm:text-base md:text-lg mb-1 sm:mb-2 uppercase tracking-tight">Dumitru <span class="text-gray-500 font-bold text-[10px] sm:text-xs md:text-sm tracking-normal capitalize ml-1">| Sales Manager</span></p>
-                                    <div class="flex items-center text-lg sm:text-xl md:text-2xl font-black mb-1 sm:mb-2 mt-1 sm:mt-2">
-                                        <i class="fa-solid fa-phone w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="whitespace-nowrap">(872) 871-5787</span>
+                                <div class="mb-3 sm:mb-4">
+                                    <p class="font-black text-xs sm:text-sm mb-1 uppercase tracking-tight">Dumitru <span class="text-gray-500 font-bold text-[9px] sm:text-[10px] tracking-normal capitalize ml-1">| Sales Manager</span></p>
+                                    <div class="flex items-center text-base sm:text-lg font-black mb-1 mt-1">
+                                        <i class="fa-solid fa-phone w-4 sm:w-5 text-primaryRed"></i> <span class="whitespace-nowrap">(872) 871-5787</span>
                                     </div>
-                                    <div class="flex items-center text-sm sm:text-base md:text-lg font-medium text-gray-700">
-                                        <i class="fa-solid fa-envelope w-5 sm:w-6 md:w-8 text-primaryRed"></i> <span class="break-words-all">dumitru@fulltank.us</span>
+                                    <div class="flex items-center text-xs sm:text-sm font-medium text-gray-700">
+                                        <i class="fa-solid fa-envelope w-4 sm:w-5 text-primaryRed"></i> <span class="break-words-all">dumitru@fulltank.us</span>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="mt-auto pt-3 sm:pt-4 border-t-2 border-deepBlack flex items-center">
-                                <i class="fa-solid fa-globe w-5 sm:w-6 md:w-8 text-primaryRed text-base sm:text-lg md:text-xl"></i>
-                                <a href="https://www.fulltank.us" target="_blank" class="font-black text-deepBlack hover:text-primaryRed transition uppercase tracking-widest text-xs sm:text-sm md:text-base break-words-all ml-1 sm:ml-2">www.fulltank.us</a>
+                            <div class="mt-auto pt-2 sm:pt-3 border-t-2 border-deepBlack flex items-center">
+                                <i class="fa-solid fa-globe w-4 sm:w-5 text-primaryRed text-sm sm:text-base"></i>
+                                <a href="https://www.fulltank.us" target="_blank" class="font-black text-deepBlack hover:text-primaryRed transition uppercase tracking-widest text-[10px] sm:text-xs break-words-all ml-1 sm:ml-2">www.fulltank.us</a>
                             </div>
                         </div>
                         
